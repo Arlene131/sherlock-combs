@@ -1,0 +1,97 @@
+[
+  {
+    "id": "UT-guide", "category": "undertone_guide", "title": "Cara mengenali undertone kulit",
+    "content": "Undertone adalah warna dasar di bawah permukaan kulit, berbeda dengan warna kulit (terang, sawo matang, gelap). Tes urat nadi: lihat urat di pergelangan tangan di bawah cahaya alami; kehijauan berarti warm, biru atau ungu berarti cool, sulit dibedakan berarti neutral. Tes perhiasan: jika lebih cocok memakai emas berarti warm, perak berarti cool, keduanya cocok berarti neutral. Tes matahari: mudah menjadi gelap atau cokelat saat berjemur cenderung warm atau neutral, mudah terbakar kemerahan cenderung cool. Kebanyakan kulit sawo matang di Indonesia memiliki undertone warm atau neutral, tetapi tetap perlu dicek.",
+    "service_ids": [], "product_ids": []
+  },
+  {
+    "id": "UT-warm", "category": "color_guide", "title": "Warna rambut untuk undertone warm",
+    "undertones": ["warm"],
+    "content": "Undertone warm cocok dengan warna rambut yang memiliki nada keemasan, merah, atau oranye: hitam natural, cokelat tua hangat, chestnut brown, golden brown, caramel/honey, mahogany, copper, dan golden blonde. Hindari warna yang sangat dingin seperti platinum, silver, atau ash yang terlalu abu karena bisa membuat kulit tampak pucat atau kusam.",
+    "service_ids": ["S07", "S09", "S10", "S11"], "product_ids": []
+  },
+  {
+    "id": "UT-cool", "category": "color_guide", "title": "Warna rambut untuk undertone cool",
+    "undertones": ["cool"],
+    "content": "Undertone cool cocok dengan warna rambut bernada dingin seperti biru, ungu, atau abu: blue black, cokelat tua dingin, ash brown, burgundy/wine, ash grey, silver, platinum blonde, navy blue, lavender, dan rose gold. Hindari warna dengan nada oranye atau keemasan kuat seperti copper dan golden blonde karena bisa membuat kulit tampak kemerahan.",
+    "service_ids": ["S07", "S09", "S10", "S11"], "product_ids": []
+  },
+  {
+    "id": "UT-neutral", "category": "color_guide", "title": "Warna rambut untuk undertone neutral",
+    "undertones": ["neutral"],
+    "content": "Undertone neutral paling fleksibel karena cocok dengan warna hangat maupun dingin. Pilihan aman: hitam natural, espresso/dark brown, ash brown, beige blonde, bronde (perpaduan cokelat dan blonde), dan highlight halus. Warna ekstrem dingin (silver) atau ekstrem hangat (copper) tetap bisa dipakai, tinggal disesuaikan dengan selera.",
+    "service_ids": ["S07", "S09", "S10", "S11"], "product_ids": []
+  },
+  {
+    "id": "HC-natural-black", "category": "hair_color", "title": "Warna rambut: Natural Black / Blue Black",
+    "undertones": ["warm", "cool", "neutral"], "requires_bleach": false,
+    "content": "Natural Black (hitam natural) cocok untuk semua undertone dan memberi kesan rapi serta sehat. Blue Black (hitam dengan kilau kebiruan) lebih cocok untuk undertone cool. Tidak butuh bleaching: cukup Basic Coloring. Bisa dilakukan di virgin hair maupun rambut bekas cat. Juga pilihan untuk menutup warna lama yang pudar atau uban (gunakan Gray Coverage).",
+    "service_ids": ["S07", "S08"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-dark-brown", "category": "hair_color", "title": "Warna rambut: Dark Brown / Espresso",
+    "undertones": ["warm", "cool", "neutral"], "requires_bleach": false,
+    "content": "Dark Brown atau Espresso adalah cokelat tua yang natural dan aman untuk semua undertone, cocok untuk kantor. Pada virgin hair hitam, Basic Coloring biasanya cukup untuk menghasilkan cokelat tua yang halus. Pada rambut bekas cat hitam, cat tidak bisa mengangkat cat, jadi perlu Color Remover dulu agar cokelatnya terlihat. Rawat dengan color-safe shampoo agar warna awet.",
+    "service_ids": ["S07", "S12"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-chestnut", "category": "hair_color", "title": "Warna rambut: Chestnut / Golden Brown / Caramel",
+    "undertones": ["warm", "neutral"], "requires_bleach": "optional",
+    "content": "Chestnut, Golden Brown, dan Caramel adalah cokelat hangat yang cocok untuk undertone warm dan neutral. Pada virgin hair hitam, Basic Coloring menghasilkan efek cokelat hangat yang samar terutama di bawah matahari. Untuk hasil cokelat terang yang jelas, rambut perlu Bleaching 1 sesi ringan lalu Fashion Color untuk toning. Alternatif lebih aman: Highlight/Balayage cokelat caramel agar tidak semua rambut di-bleach.",
+    "service_ids": ["S07", "S09", "S10", "S11"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-ash-brown", "category": "hair_color", "title": "Warna rambut: Ash Brown",
+    "undertones": ["cool", "neutral"], "requires_bleach": true,
+    "content": "Ash Brown adalah cokelat dingin keabu-abuan, cocok untuk undertone cool dan neutral; kurang cocok untuk warm. Rambut Asia yang gelap cenderung memunculkan warna oranye/merah saat diangkat, sehingga Ash Brown butuh Bleaching 1 sesi lalu Fashion Color untuk toning abu. Gunakan purple shampoo seminggu sekali agar warna tidak cepat berubah menjadi kemerahan.",
+    "service_ids": ["S09", "S10"], "product_ids": ["P09", "P08"]
+  },
+  {
+    "id": "HC-burgundy", "category": "hair_color", "title": "Warna rambut: Burgundy / Wine / Mahogany",
+    "undertones": ["cool", "warm", "neutral"], "requires_bleach": "optional",
+    "content": "Burgundy atau Wine (merah keunguan) cocok untuk undertone cool. Mahogany (merah kecokelatan) cocok untuk undertone warm. Keduanya cocok untuk neutral. Pada virgin hair, Basic Coloring menghasilkan semburat merah gelap yang terlihat di bawah cahaya. Untuk merah yang jelas dan terang perlu Bleaching 1 sesi lalu Fashion Color. Warna merah cepat pudar, jadi gunakan color-safe shampoo dan cuci dengan air dingin.",
+    "service_ids": ["S07", "S09", "S10"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-copper", "category": "hair_color", "title": "Warna rambut: Copper / Orange",
+    "undertones": ["warm"], "requires_bleach": true,
+    "content": "Copper (tembaga/oranye kemerahan) sangat cocok untuk undertone warm dan kulit sawo matang. Hindari untuk undertone cool. Butuh Bleaching 1 sesi lalu Fashion Color. Karena rambut gelap alami melewati fase oranye saat di-bleach, copper relatif lebih mudah dicapai dibanding warna abu atau silver. Rawat dengan color-safe shampoo.",
+    "service_ids": ["S09", "S10"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-golden-blonde", "category": "hair_color", "title": "Warna rambut: Golden Blonde / Honey Blonde",
+    "undertones": ["warm"], "requires_bleach": true,
+    "content": "Golden Blonde atau Honey Blonde cocok untuk undertone warm. Butuh Bleaching hingga rambut kuning (biasanya 2 sesi untuk rambut hitam) lalu Fashion Color untuk toning keemasan. Disarankan Bond Repair Treatment untuk menjaga kekuatan rambut. Rawat dengan color-safe shampoo, conditioner, dan heat protectant.",
+    "service_ids": ["S09", "S10", "S13"], "product_ids": ["P08", "P10", "P12"]
+  },
+  {
+    "id": "HC-beige-blonde", "category": "hair_color", "title": "Warna rambut: Beige Blonde / Bronde",
+    "undertones": ["neutral", "warm", "cool"], "requires_bleach": true,
+    "content": "Beige Blonde (blonde krem lembut) dan Bronde (perpaduan cokelat dan blonde) paling cocok untuk undertone neutral, dan masih aman untuk warm maupun cool. Bronde paling mudah dicapai lewat Highlight/Balayage sehingga tidak semua rambut di-bleach. Beige Blonde penuh butuh Bleaching sekitar 2 sesi lalu Fashion Color dan Bond Repair Treatment.",
+    "service_ids": ["S11", "S09", "S10", "S13"], "product_ids": ["P09", "P08"]
+  },
+  {
+    "id": "HC-ash-grey-silver", "category": "hair_color", "title": "Warna rambut: Ash Grey / Silver / Platinum",
+    "undertones": ["cool", "neutral"], "requires_bleach": true,
+    "content": "Ash Grey, Silver, dan Platinum cocok untuk undertone cool dan sebagian neutral; kurang cocok untuk warm karena bisa membuat kulit tampak kusam. Ini warna paling sulit untuk rambut hitam: butuh Bleaching sampai kuning sangat pucat (biasanya 2-3 sesi dengan jeda), lalu Fashion Color untuk toning abu/silver. Bond Repair Treatment wajib untuk mencegah rambut patah. Hanya disarankan untuk rambut sehat. Perawatan tinggi: purple shampoo 1-2 kali seminggu, conditioner, heat protectant, dan toning ulang setiap 4-6 minggu.",
+    "service_ids": ["S09", "S10", "S13"], "product_ids": ["P09", "P10", "P12"]
+  },
+  {
+    "id": "HC-pastel", "category": "hair_color", "title": "Warna rambut: Rose Gold / Lavender / Pastel",
+    "undertones": ["cool", "neutral"], "requires_bleach": true,
+    "content": "Rose Gold, Lavender, dan warna pastel lainnya cocok untuk undertone cool dan neutral. Butuh dasar rambut yang sangat terang, jadi perlu Bleaching 2-3 sesi lalu Fashion Color, plus Bond Repair Treatment. Warna pastel cepat pudar (sekitar 3-4 minggu), jadi gunakan color-safe shampoo dan cuci dengan air dingin.",
+    "service_ids": ["S09", "S10", "S13"], "product_ids": ["P08", "P10"]
+  },
+  {
+    "id": "HC-navy-purple", "category": "hair_color", "title": "Warna rambut: Navy Blue / Deep Purple",
+    "undertones": ["cool", "neutral"], "requires_bleach": true,
+    "content": "Navy Blue dan Deep Purple cocok untuk undertone cool dan neutral. Karena warnanya cukup gelap, biasanya cukup Bleaching 1 sesi lalu Fashion Color. Pilihan bagus untuk yang ingin warna unik tetapi tidak terlalu mencolok. Rawat dengan color-safe shampoo karena warna biru dan ungu mudah luntur.",
+    "service_ids": ["S09", "S10"], "product_ids": ["P08"]
+  },
+  {
+    "id": "HC-highlight", "category": "hair_color", "title": "Opsi: Highlight / Balayage untuk pria",
+    "undertones": ["warm", "cool", "neutral"], "requires_bleach": true,
+    "content": "Highlight atau Balayage mewarnai sebagian helai rambut sehingga hasilnya terlihat dimensi dan lebih natural dibanding warna penuh. Cocok untuk semua undertone: pilih nada caramel/honey untuk warm, ash untuk cool, dan beige/bronde untuk neutral. Lebih ramah untuk pemula karena hanya sebagian rambut yang di-bleach dan perawatannya lebih ringan. Cocok untuk textured crop, quiff, dan rambut medium.",
+    "service_ids": ["S11"], "product_ids": ["P08", "P09"]
+  }
+]

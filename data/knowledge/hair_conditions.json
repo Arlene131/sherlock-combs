@@ -1,0 +1,55 @@
+[
+  {
+    "id": "CD-virgin", "category": "hair_condition", "title": "Kondisi rambut: Virgin hair (belum pernah diwarnai atau proses kimia)",
+    "conditions": ["virgin"],
+    "content": "Virgin hair adalah rambut yang belum pernah dicat, di-bleach, di-smoothing, di-rebonding, atau di-perm. Pigmennya alami dan porositasnya merata sehingga hasil pewarnaan paling bisa diprediksi. Warna lebih gelap atau cokelat tua bisa langsung dengan Basic Coloring. Untuk warna jauh lebih terang (blonde, ash, silver, pastel) tetap perlu Bleaching. Rambut hitam Asia saat diangkat akan melewati fase merah, oranye, lalu kuning, jadi warna dingin butuh toning lewat Fashion Color.",
+    "service_ids": ["S07", "S09", "S10"], "product_ids": []
+  },
+  {
+    "id": "CD-colored", "category": "hair_condition", "title": "Kondisi rambut: Pernah dicat / disemir (artificial color)",
+    "conditions": ["colored"],
+    "content": "Rambut yang pernah dicat atau disemir berisi pigmen buatan. Prinsip penting: cat tidak bisa mengangkat cat. Ingin warna lebih gelap atau sama gelap: bisa langsung dengan Basic Coloring. Ingin warna lebih terang dari cat sebelumnya: pigmen lama harus dihapus dulu dengan Color Remover atau diangkat dengan Bleaching, lalu baru diwarnai dengan Fashion Color. Bagian akar yang masih virgin dan ujung yang bekas cat sering memberi hasil berbeda, jadi barber akan memperlakukannya terpisah.",
+    "service_ids": ["S07", "S12", "S09", "S10"], "product_ids": ["P08"]
+  },
+  {
+    "id": "CD-bleached", "category": "hair_condition", "title": "Kondisi rambut: Pernah di-bleaching",
+    "conditions": ["bleached"],
+    "content": "Rambut yang sudah pernah di-bleaching sudah terang sehingga bisa langsung diberi Fashion Color (toning) tanpa bleaching ulang jika warnanya cukup terang. Hindari bleaching ulang pada bagian yang sudah terang karena risiko rambut patah. Bagian akar yang baru tumbuh bisa di-bleach terpisah. Rambut bleach mudah kering dan menguning, jadi disarankan Bond Repair Treatment, purple shampoo untuk menetralkan kuning, dan conditioner.",
+    "service_ids": ["S10", "S13", "S09"], "product_ids": ["P09", "P10", "P08"]
+  },
+  {
+    "id": "CD-damaged", "category": "hair_condition", "title": "Kondisi rambut: Rusak, kering, rapuh, atau bercabang",
+    "conditions": ["damaged"],
+    "content": "Tanda rambut rusak: terasa kasar seperti jerami, mudah patah, ujung bercabang, atau terasa melar seperti karet saat basah. Rambut rusak tidak disarankan langsung di-bleaching karena risiko patah tinggi. Perbaiki dulu dengan Bond Repair Treatment dan Hair Spa, potong ujung yang rusak dengan Signature Haircut, lalu konsultasikan dengan barber dan lakukan tes helai sebelum pewarnaan. Perawatan di rumah: conditioner, hair vitamin serum, dan heat protectant saat memakai hair dryer.",
+    "service_ids": ["S13", "S14", "S01", "S17"], "product_ids": ["P10", "P11", "P12"]
+  },
+  {
+    "id": "CD-chemical", "category": "hair_condition", "title": "Kondisi rambut: Pernah smoothing, rebonding, keratin, atau perm",
+    "conditions": ["chemically_treated"],
+    "content": "Rambut yang baru di-smoothing, rebonding, keratin, atau perm sudah mengalami proses kimia sehingga lebih rentan. Beri jeda minimal sekitar 2 minggu sebelum proses kimia berikutnya seperti pewarnaan atau bleaching, dan informasikan riwayat ini ke barber. Bleaching di atas rambut rebonding berisiko tinggi, jadi wajib tes helai dan Bond Repair Treatment. Pewarnaan gelap dengan Basic Coloring umumnya lebih aman daripada bleaching.",
+    "service_ids": ["S13", "S07", "S14"], "product_ids": ["P10", "P08"]
+  },
+  {
+    "id": "CD-henna", "category": "hair_condition", "title": "Kondisi rambut: Pernah memakai henna atau semir rumahan",
+    "conditions": ["colored"],
+    "content": "Henna dan sebagian semir rumahan bisa bereaksi dengan bleaching dan menghasilkan warna tidak terduga atau panas berlebih. Jika pernah memakai henna atau semir rumahan, wajib beri tahu barber dan lakukan tes helai sebelum Bleaching atau Color Remover. Untuk warna gelap, Basic Coloring biasanya masih bisa dilakukan.",
+    "service_ids": ["S07", "S12", "S09"], "product_ids": []
+  },
+  {
+    "id": "CD-gray", "category": "hair_condition", "title": "Kondisi rambut: Beruban",
+    "conditions": ["gray"],
+    "content": "Uban lebih sulit menyerap warna sehingga butuh formula khusus. Gray Coverage menutup uban dengan warna natural seperti hitam atau cokelat tua. Untuk yang ingin uban tetap terlihat tetapi lebih rapi, pilihan lain adalah potongan pendek rapi seperti crew cut atau side part. Rawat dengan color-safe shampoo agar warna penutup uban lebih awet; touch-up akar biasanya setiap 4-6 minggu.",
+    "service_ids": ["S08", "S01"], "product_ids": ["P08"]
+  },
+  {
+    "id": "CD-safety", "category": "hair_condition", "title": "Keamanan sebelum pewarnaan rambut",
+    "conditions": ["virgin", "colored", "bleached", "damaged", "chemically_treated", "gray"],
+    "content": "Sebelum pewarnaan pertama kali, disarankan tes alergi (patch test) sekitar 48 jam sebelumnya di kulit belakang telinga, terutama bagi yang kulitnya sensitif. Jangan mewarnai rambut jika kulit kepala sedang luka, iritasi, atau terbakar matahari. Beri tahu barber riwayat rambut 1 tahun terakhir (cat, bleaching, smoothing, perm, henna). Jika muncul gatal hebat, bengkak, atau ruam setelah pewarnaan, hentikan dan segera periksa ke dokter.",
+    "service_ids": [], "product_ids": []
+  },
+  {
+    "id": "CD-identify", "category": "hair_condition", "title": "Cara mengenali kondisi rambut sendiri",
+    "content": "Pertanyaan untuk mengenali kondisi rambut: apakah dalam 1-2 tahun terakhir rambut pernah dicat atau disemir, pernah di-bleaching, pernah smoothing/rebonding/keratin/perm, atau pernah memakai henna? Jika belum pernah sama sekali, rambut termasuk virgin hair. Cek juga kerusakan: rambut kasar, kering, ujung bercabang, atau mudah patah menandakan rambut rusak. Cek porositas sederhana: rambut yang cepat menyerap air dan cepat kering biasanya porositas tinggi (cenderung rusak).",
+    "service_ids": [], "product_ids": []
+  }
+]

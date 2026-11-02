@@ -1,0 +1,74 @@
+[
+  {
+    "id": "TR-dandruff", "category": "treatment", "title": "Perawatan untuk ketombe",
+    "issues": ["dandruff"],
+    "content": "Ketombe ringan ditandai serpihan putih di kulit kepala dan bahu serta rasa gatal ringan. Di barbershop: Anti-Dandruff Scalp Treatment. Di rumah: Anti-Dandruff Shampoo 2-3 kali seminggu, bilas sampai bersih, dan hindari menumpuk pomade berbasis minyak di kulit kepala. Jika kulit kepala sangat merah, bersisik tebal, bernanah, atau tidak membaik setelah beberapa minggu, sebaiknya periksa ke dokter kulit.",
+    "service_ids": ["S15"], "product_ids": ["P07"]
+  },
+  {
+    "id": "TR-hair-fall", "category": "treatment", "title": "Perawatan untuk rambut rontok",
+    "issues": ["hair_fall"],
+    "content": "Kerontokan sekitar 50-100 helai per hari masih normal. Untuk kerontokan ringan: Hair Fall Scalp Treatment di barbershop, Hair Tonic di rumah setiap hari, hindari mengikat atau menyisir rambut terlalu kencang, dan kurangi panas hair dryer. Hair Vitamin Serum membantu batang rambut lebih lembut tetapi tidak menumbuhkan rambut. Jika rontok tiba-tiba sangat banyak, muncul area botak berbentuk bulat, atau garis rambut mundur dengan cepat, segera konsultasikan ke dokter kulit karena itu di luar layanan barbershop.",
+    "service_ids": ["S16"], "product_ids": ["P06", "P11"]
+  },
+  {
+    "id": "TR-dry", "category": "treatment", "title": "Perawatan untuk rambut kering, kusam, dan frizzy",
+    "issues": ["dry", "frizzy"],
+    "content": "Rambut kering, kusam, atau frizzy (mengembang tidak teratur) butuh kelembapan. Di barbershop: Hair Spa / Creambath setiap 2-4 minggu, atau Keratin Treatment untuk frizz berat agar rambut lebih halus dan mudah diatur selama beberapa bulan. Di rumah: Conditioner setiap keramas, Hair Vitamin Serum di batang rambut, dan Heat Protectant Spray sebelum memakai hair dryer.",
+    "service_ids": ["S14", "S17"], "product_ids": ["P10", "P11", "P12"]
+  },
+  {
+    "id": "TR-post-bleach", "category": "treatment", "title": "Perawatan setelah bleaching dan pewarnaan",
+    "issues": ["post_color"],
+    "conditions": ["bleached", "colored"],
+    "content": "Setelah bleaching atau pewarnaan: tunggu 48-72 jam sebelum keramas pertama, gunakan Color-Safe Shampoo agar warna awet, Purple Shampoo 1-2 kali seminggu untuk rambut blonde, ash, atau silver agar tidak menguning, Conditioner setiap keramas, dan Heat Protectant saat styling. Lakukan Bond Repair Treatment atau Hair Spa setiap 2-4 minggu. Bilas dengan air dingin atau suhu ruang dan kurangi paparan matahari langsung.",
+    "service_ids": ["S13", "S14"], "product_ids": ["P08", "P09", "P10", "P12"]
+  },
+  {
+    "id": "TR-oily", "category": "treatment", "title": "Perawatan untuk rambut dan kulit kepala berminyak",
+    "issues": ["oily"],
+    "content": "Rambut cepat lepek dan kulit kepala berminyak: keramas lebih rutin dengan sampo, aplikasikan conditioner hanya di batang dan ujung rambut, bukan di kulit kepala. Gunakan Hair Tonic yang menyegarkan kulit kepala. Untuk styling pilih produk matte berbasis air seperti Matte Clay atau Texture Powder, hindari Oil-Based Pomade karena menambah minyak. Potongan pendek bertekstur seperti textured crop atau crew cut lebih praktis untuk rambut berminyak.",
+    "service_ids": ["S01"], "product_ids": ["P06", "P03", "P04"]
+  },
+  {
+    "id": "TR-volume", "category": "treatment", "title": "Solusi rambut tipis atau kurang bervolume",
+    "issues": ["thin", "flat"],
+    "content": "Rambut tipis atau lepek akan terlihat lebih padat dengan potongan pendek bertekstur (short textured cut, crew cut, textured crop). Gunakan Texture Powder atau Sea Salt Spray untuk volume, hindari Oil-Based Pomade yang berat. Perm ringan bisa memberi volume tahan lama. Untuk kesehatan kulit kepala bisa dibantu Hair Fall Scalp Treatment dan Hair Tonic. Hindari slick back dan rambut panjang lurus yang menampakkan kulit kepala.",
+    "service_ids": ["S01", "S18", "S16"], "product_ids": ["P04", "P05", "P06"]
+  },
+  {
+    "id": "TR-side-puff", "category": "treatment", "title": "Solusi rambut samping mekar atau berdiri",
+    "issues": ["side_puff"],
+    "content": "Rambut samping yang mekar atau berdiri (sering terjadi pada rambut lurus tebal Asia) membuat kepala terlihat lebar, terutama pada gaya two block, comma hair, atau wajah bulat. Solusinya Down Perm, yaitu proses menidurkan rambut samping agar menempel rapi ke kepala, biasanya tahan sekitar 1-2 bulan. Alternatif tanpa kimia: samping dipotong lebih pendek dengan fade atau taper.",
+    "service_ids": ["S19", "S01"], "product_ids": []
+  },
+  {
+    "id": "TR-curly-manage", "category": "treatment", "title": "Solusi rambut keriting atau ikal yang susah diatur",
+    "issues": ["unmanageable_curls", "frizzy"],
+    "content": "Ada dua pendekatan untuk rambut keriting yang susah diatur. Pertama, menonjolkan ikal alami: potongan curly top dengan fade atau curly fringe, Sea Salt Spray untuk definisi ikal, Conditioner rutin, dan Hair Spa berkala. Kedua, membuat rambut lebih lurus dan halus: Hair Smoothing untuk hasil lurus atau Keratin Treatment untuk mengurangi frizz tanpa membuat terlalu lurus. Setelah smoothing beri jeda minimal sekitar 2 minggu sebelum pewarnaan.",
+    "service_ids": ["S20", "S17", "S01", "S14"], "product_ids": ["P05", "P10"]
+  },
+  {
+    "id": "TR-straight-volume", "category": "treatment", "title": "Solusi rambut lurus kaku ingin terlihat bervolume atau wavy",
+    "issues": ["flat"],
+    "content": "Rambut lurus kaku yang sulit diberi bentuk bisa dibuat bervolume dengan Perm (Korean perm atau wavy). Hasilnya cocok untuk comma hair, curtain hair, dan curly fringe. Perm bertahan sekitar 2-3 bulan. Rawat dengan Conditioner dan Sea Salt Spray untuk menonjolkan gelombang. Beri jeda minimal sekitar 2 minggu sebelum pewarnaan.",
+    "service_ids": ["S18"], "product_ids": ["P05", "P10"]
+  },
+  {
+    "id": "TR-beard", "category": "treatment", "title": "Perawatan jenggot dan cukur",
+    "issues": ["beard"],
+    "content": "Untuk jenggot dan kumis: Beard Trim & Shaping untuk merapikan bentuk sesuai wajah, atau Hot Towel Shave untuk cukur bersih yang nyaman. Di rumah gunakan Beard Oil setiap hari agar jenggot lembut dan kulit di bawahnya tidak kering atau gatal. Panduan bentuk: wajah bulat cocok jenggot pendek berbentuk kotak, wajah lonjong cocok stubble atau jenggot pendek tanpa memanjangkan dagu, wajah hati dan diamond cocok jenggot yang menambah lebar di dagu.",
+    "service_ids": ["S04", "S05"], "product_ids": ["P13"]
+  },
+  {
+    "id": "TR-routine", "category": "treatment", "title": "Rutinitas perawatan rambut pria dasar",
+    "issues": ["general"],
+    "content": "Rutinitas dasar: keramas 2-3 kali seminggu (atau lebih sering jika berminyak), gunakan conditioner di batang rambut, keringkan dengan handuk tanpa digosok kasar, gunakan heat protectant sebelum hair dryer, pilih produk styling sesuai gaya, dan bilas produk styling sebelum tidur. Potong rambut rutin setiap 3-4 minggu untuk potongan pendek atau 6-8 minggu untuk rambut medium. Hair Spa setiap bulan menjaga rambut tetap lembap.",
+    "service_ids": ["S01", "S14"], "product_ids": ["P10", "P12"]
+  },
+  {
+    "id": "PR-styling-guide", "category": "product_guide", "title": "Panduan memilih produk styling",
+    "content": "Memilih produk styling: Water-Based Pomade untuk tampilan rapi dengan kilau medium dan mudah dibilas (side part, quiff). Oil-Based Pomade untuk kilau tinggi dan hold kuat gaya klasik (slick back, pompadour), tetapi sulit dibilas dan kurang cocok untuk kulit kepala berminyak. Matte Clay untuk hasil natural tanpa kilau dengan hold kuat (textured crop, faux hawk, rambut tebal). Texture Powder untuk volume dan tekstur ringan (rambut tipis atau lepek). Sea Salt Spray sebagai pre-styling untuk efek wavy dan tekstur (rambut bergelombang, keriting, comma hair, curtain hair).",
+    "service_ids": [], "product_ids": ["P01", "P02", "P03", "P04", "P05"]
+  }
+]

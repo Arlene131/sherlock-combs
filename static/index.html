@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Sherlock Combs Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="half half-left"></div>
+    <div class="half half-right"></div>
+    <div class="cut-line"></div>
+    <svg class="scissors" viewBox="0 0 80 120" aria-hidden="true">
+      <g class="blade blade-a">
+        <path d="M40 60 L33 4 Q40 0 44 6 Z" fill="#e6e6e6"/>
+        <circle cx="26" cy="92" r="14" fill="none" stroke="#bec8d2" stroke-width="7"/>
+        <path d="M40 60 L30 80" stroke="#bec8d2" stroke-width="7" stroke-linecap="round"/>
+      </g>
+      <g class="blade blade-b">
+        <path d="M40 60 L47 4 Q40 0 36 6 Z" fill="#ffffff"/>
+        <circle cx="54" cy="92" r="14" fill="none" stroke="#bec8d2" stroke-width="7"/>
+        <path d="M40 60 L50 80" stroke="#bec8d2" stroke-width="7" stroke-linecap="round"/>
+      </g>
+      <circle cx="40" cy="60" r="4" fill="#003c32" stroke="#bec8d2" stroke-width="2"/>
+    </svg>
+    <div class="splash-content">
+      <div class="splash-mascot" data-mascot="wave"></div>
+      <h1 class="splash-hello">alright?</h1>
+      <p class="splash-sub">hi! aku Sherlock Combs</p>
+      <p class="splash-note">Konsultan rambut virtualmu</p>
+    </div>
+    <button type="button" class="splash-skip">Lewati</button>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-name">SHERLOCK COMBS</span>
+        <span class="brand-sub">Hair consultant</span>
+      </div>
+
+      <div class="mascot-card">
+        <div class="mascot-stage" id="main-mascot" data-mascot></div>
+        <p class="mascot-status" id="mascot-status">Sir Sherlock Combs</p>
+      </div>
+
+      <ul class="topics">
+        <li><span class="dot"></span>Gaya rambut sesuai bentuk wajah</li>
+        <li><span class="dot"></span>Warna sesuai undertone kulit</li>
+        <li><span class="dot"></span>Perawatan &amp; produk</li>
+      </ul>
+
+      <button id="reset-btn" class="sidebar-btn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Mulai ulang percakapan
+      </button>
+    </aside>
+
+    <div class="workspace">
+      <section class="chat">
+        <header class="chat-header">
+          <div class="chat-title">
+            <div class="mini-mascot" data-mascot="mini"></div>
+            <div>
+              <h2>Konsultasi Rambut</h2>
+              <p><span class="online"></span>Sherlock · online</p>
+            </div>
+          </div>
+          <button id="toggle-profile" class="icon-btn" type="button" aria-expanded="false" aria-label="Profil rambut">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Profil</span>
+          </button>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="suggestions" class="suggestions"></div>
+
+        <form id="chat-form" class="composer">
+          <button type="button" class="composer-icon" id="composer-camera" aria-label="Deteksi wajah dengan kamera">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+          <textarea id="input" rows="1" maxlength="1000" placeholder="Tanya soal gaya rambut, warna, perawatan…" required></textarea>
+          <button type="submit" id="send-btn" class="send-btn" aria-label="Kirim">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z" fill="currentColor"/></svg>
+          </button>
+        </form>
+      </section>
+
+      <aside id="profile-panel" class="profile-panel">
+        <div class="panel-head">
+          <h2>Profil Rambut</h2>
+          <span class="badge" id="profile-count">0/5</span>
+          <button class="icon-btn close-panel" id="close-profile" type="button" aria-label="Tutup profil">✕</button>
+        </div>
+        <p class="hint">Terisi otomatis dari chat, bisa juga kamu atur manual.</p>
+
+        <label>Bentuk wajah
+          <select data-field="face_shape">
+            <option value="">Belum tahu</option>
+            <option value="oval">Oval</option><option value="round">Bulat</option>
+            <option value="square">Kotak</option><option value="oblong">Lonjong</option>
+            <option value="heart">Hati</option><option value="diamond">Diamond</option>
+            <option value="triangle">Segitiga</option>
+          </select>
+        </label>
+        <button id="face-scan-btn" class="scan-btn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          Deteksi wajah dengan kamera
+        </button>
+
+        <label>Tekstur rambut
+          <select data-field="hair_texture">
+            <option value="">Belum tahu</option><option value="straight">Lurus</option>
+            <option value="wavy">Bergelombang</option><option value="curly">Keriting</option>
+          </select>
+        </label>
+        <label>Ketebalan
+          <select data-field="hair_thickness">
+            <option value="">Belum tahu</option><option value="thin">Tipis</option>
+            <option value="medium">Sedang</option><option value="thick">Tebal</option>
+          </select>
+        </label>
+        <label>Undertone kulit
+          <select data-field="undertone">
+            <option value="">Belum tahu</option><option value="warm">Warm</option>
+            <option value="cool">Cool</option><option value="neutral">Neutral</option>
+          </select>
+        </label>
+        <label>Kondisi rambut
+          <select data-field="hair_condition">
+            <option value="">Belum tahu</option>
+            <option value="virgin">Virgin hair</option>
+            <option value="colored">Pernah dicat/semir</option>
+            <option value="bleached">Pernah bleaching</option>
+            <option value="chemically_treated">Pernah smoothing/rebonding/perm</option>
+            <option value="damaged">Rusak/kering</option>
+            <option value="gray">Beruban</option>
+          </select>
+        </label>
+        <div id="issues" class="issues"></div>
+      </aside>
+    </div>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <dialog id="face-dialog" class="face-dialog">
+    <div class="dialog-head">
+      <h2>Deteksi bentuk wajah</h2>
+      <p class="hint">Hadap lurus ke kamera, rambut disingkirkan dari dahi, cahaya cukup terang.
+        Gambar diproses di browser kamu dan <strong>tidak dikirim ke server</strong>.</p>
+    </div>
+    <div class="camera-intro" id="camera-intro">
+      <div class="camera-intro-mascot" data-mascot></div>
+      <span class="cekrek">Cekrek!</span>
+      <div class="flash-screen"></div>
+    </div>
+    <div class="video-wrap">
+      <video id="face-video" playsinline muted></video>
+      <canvas id="face-canvas"></canvas>
+    </div>
+    <p id="face-status" class="face-status">Menyiapkan kamera…</p>
+    <p id="face-metrics" class="face-metrics"></p>
+    <div class="dialog-actions">
+      <button id="face-rescan" class="ghost-btn" type="button">Ukur ulang</button>
+      <button id="face-cancel" class="ghost-btn" type="button">Batal</button>
+      <button id="face-use" class="primary-btn" type="button" disabled>Pakai hasil ini</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

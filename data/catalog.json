@@ -1,0 +1,44 @@
+{
+  "shop": {
+    "name": "Sherlock Combs",
+    "type": "Men's barbershop (fictional)",
+    "currency": "IDR"
+  },
+  "services": [
+    {"id": "S01", "name": "Signature Haircut", "price": 50000, "duration_min": 45, "description": "Cuci rambut, potong rambut sesuai gaya pilihan, dan styling dengan produk."},
+    {"id": "S02", "name": "Kids Haircut", "price": 35000, "duration_min": 30, "description": "Potong rambut untuk anak laki-laki usia 12 tahun ke bawah."},
+    {"id": "S03", "name": "Premium Haircut", "price": 80000, "duration_min": 60, "description": "Signature Haircut ditambah hot towel dan pijat kepala untuk relaksasi."},
+    {"id": "S04", "name": "Beard Trim & Shaping", "price": 30000, "duration_min": 20, "description": "Merapikan dan membentuk jenggot/kumis sesuai bentuk wajah."},
+    {"id": "S05", "name": "Hot Towel Shave", "price": 40000, "duration_min": 30, "description": "Cukur bersih dengan pisau cukur dan handuk hangat untuk membuka pori."},
+    {"id": "S06", "name": "Hair Wash & Styling", "price": 25000, "duration_min": 20, "description": "Cuci rambut dan styling tanpa potong."},
+    {"id": "S07", "name": "Basic Coloring", "price": 150000, "duration_min": 60, "description": "Pewarnaan warna natural atau gelap (hitam, cokelat tua, cokelat, burgundy gelap) tanpa bleaching."},
+    {"id": "S08", "name": "Gray Coverage", "price": 120000, "duration_min": 45, "description": "Pewarnaan untuk menutup uban dengan warna natural."},
+    {"id": "S09", "name": "Bleaching", "price": 250000, "duration_min": 90, "description": "Mengangkat pigmen rambut agar lebih terang. Harga per sesi; warna sangat terang bisa butuh 2 sesi atau lebih."},
+    {"id": "S10", "name": "Fashion Color", "price": 200000, "duration_min": 60, "description": "Pewarnaan warna terang atau unik (ash, silver, blonde, pastel, biru, ungu, copper) termasuk toning. Dilakukan setelah rambut di-bleaching."},
+    {"id": "S11", "name": "Highlight / Balayage", "price": 300000, "duration_min": 120, "description": "Pewarnaan sebagian helai rambut untuk efek dimensi; sudah termasuk bleaching pada bagian yang di-highlight."},
+    {"id": "S12", "name": "Color Remover", "price": 200000, "duration_min": 90, "description": "Menghapus pigmen cat rambut buatan (bekas semir/cat) sebelum diganti warna yang lebih terang."},
+    {"id": "S13", "name": "Bond Repair Treatment", "price": 150000, "duration_min": 30, "description": "Perawatan yang memperbaiki ikatan rambut yang rusak akibat bleaching atau proses kimia. Wajib untuk rambut rusak sebelum/sesudah bleaching."},
+    {"id": "S14", "name": "Hair Spa / Creambath", "price": 80000, "duration_min": 45, "description": "Perawatan pelembap rambut dan kulit kepala dengan masker dan pijat."},
+    {"id": "S15", "name": "Anti-Dandruff Scalp Treatment", "price": 100000, "duration_min": 40, "description": "Perawatan kulit kepala untuk mengurangi ketombe dan rasa gatal ringan."},
+    {"id": "S16", "name": "Hair Fall Scalp Treatment", "price": 120000, "duration_min": 40, "description": "Perawatan kulit kepala dengan tonik dan pijat untuk membantu mengurangi kerontokan ringan."},
+    {"id": "S17", "name": "Keratin Treatment", "price": 300000, "duration_min": 120, "description": "Perawatan untuk mengurangi frizz dan membuat rambut lebih halus serta mudah diatur."},
+    {"id": "S18", "name": "Perm", "price": 350000, "duration_min": 120, "description": "Pengeritingan rambut untuk efek wavy atau Korean perm agar rambut lebih bervolume."},
+    {"id": "S19", "name": "Down Perm", "price": 150000, "duration_min": 45, "description": "Menidurkan rambut samping yang mekar/berdiri agar menempel rapi ke kepala."},
+    {"id": "S20", "name": "Hair Smoothing", "price": 250000, "duration_min": 120, "description": "Meluruskan dan menghaluskan rambut ikal atau mengembang."}
+  ],
+  "products": [
+    {"id": "P01", "name": "Sherlock Combs Water-Based Pomade", "price": 85000, "description": "Hold medium-kuat, kilau medium, mudah dibilas air. Cocok untuk side part, quiff, dan pompadour."},
+    {"id": "P02", "name": "Sherlock Combs Oil-Based Pomade", "price": 90000, "description": "Hold kuat dan kilau tinggi untuk tampilan klasik seperti slick back dan pompadour. Lebih sulit dibilas."},
+    {"id": "P03", "name": "Sherlock Combs Matte Clay", "price": 95000, "description": "Hold kuat dengan hasil matte natural. Cocok untuk textured crop, quiff modern, dan rambut tebal."},
+    {"id": "P04", "name": "Sherlock Combs Texture Powder", "price": 75000, "description": "Bubuk penambah volume dan tekstur, hasil matte dan ringan. Cocok untuk rambut tipis atau lepek."},
+    {"id": "P05", "name": "Sherlock Combs Sea Salt Spray", "price": 80000, "description": "Semprotan pre-styling untuk efek tekstur dan wavy natural. Cocok untuk rambut bergelombang, keriting, dan comma hair."},
+    {"id": "P06", "name": "Sherlock Combs Hair Tonic", "price": 70000, "description": "Tonik kulit kepala yang menyegarkan dan membantu merawat kulit kepala serta akar rambut."},
+    {"id": "P07", "name": "Sherlock Combs Anti-Dandruff Shampoo", "price": 65000, "description": "Sampo untuk membantu mengurangi ketombe dan gatal ringan."},
+    {"id": "P08", "name": "Sherlock Combs Color-Safe Shampoo", "price": 70000, "description": "Sampo lembut bebas sulfat keras agar warna rambut hasil coloring lebih awet."},
+    {"id": "P09", "name": "Sherlock Combs Purple Shampoo", "price": 80000, "description": "Sampo ungu untuk menetralkan warna kuning/oranye pada rambut yang sudah di-bleaching (blonde, silver, ash)."},
+    {"id": "P10", "name": "Sherlock Combs Conditioner", "price": 60000, "description": "Kondisioner pelembap untuk rambut kering, kusam, atau setelah proses kimia."},
+    {"id": "P11", "name": "Sherlock Combs Hair Vitamin Serum", "price": 50000, "description": "Vitamin rambut dalam bentuk kapsul serum yang dioleskan ke batang rambut (bukan diminum) untuk membantu rambut terasa lebih lembut dan berkilau."},
+    {"id": "P12", "name": "Sherlock Combs Heat Protectant Spray", "price": 75000, "description": "Melindungi rambut dari panas hair dryer atau catokan saat styling."},
+    {"id": "P13", "name": "Sherlock Combs Beard Oil", "price": 85000, "description": "Minyak pelembap jenggot dan kulit di bawahnya agar jenggot lebih lembut dan rapi."}
+  ]
+}

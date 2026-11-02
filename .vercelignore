@@ -1,0 +1,10 @@
+.env
+.venv/
+chroma_db/
+chroma_export.csv
+__pycache__/
+.pytest_cache/
+tests/
+docs/
+eval/
+scripts/
