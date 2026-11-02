@@ -54,7 +54,6 @@ function escapeHtml(s) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-// Minimal, safe markdown: paragraphs, bullet/numbered lists, **bold**, *italic*.
 function renderMarkdown(text) {
   const inline = (s) => escapeHtml(s)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -108,6 +107,15 @@ function fillMessage(el, msg) {
       }
       el.appendChild(cards);
     }
+    if (msg.examples?.length) {
+      const box = document.createElement("div");
+      box.className = "examples";
+      box.innerHTML = `<span class="examples-label">Lihat contoh:</span>` + msg.examples.map((e) =>
+        `<a class="example-chip" href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${escapeHtml(e.label)}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>`
+      ).join("");
+      el.appendChild(box);
+    }
     if (msg.sources?.length) {
       const det = document.createElement("details");
       det.className = "sources";
@@ -127,7 +135,7 @@ function renderAll() {
   messagesEl.innerHTML = "";
   if (!state.rendered.length) {
     addMessage({ role: "assistant", content:
-      "Halo, aku Sherlock dari Sherlock Combs.\n" +
+      "Greetings! Aku Sherlock dari Sherlock Combs.\n" +
       "Aku bisa bantu pilih gaya rambut sesuai bentuk wajah, warna sesuai undertone kulit, " +
       "dan perawatan untuk kondisi rambutmu. Mau mulai dari mana?" });
   }
@@ -163,6 +171,12 @@ function renderProfile() {
   $("#profile-count").textContent = `${filled}/5`;
 }
 
+function seenIds() {
+  const ids = state.rendered.filter((m) => m.role === "assistant" && m.route === "rag")
+    .flatMap((m) => (m.sources || []).map((s) => s.id));
+  return [...new Set(ids)].slice(-40);
+}
+
 async function send(text) {
   const message = text.trim();
   if (!message) return;
@@ -195,7 +209,8 @@ async function send(text) {
     } else if (ev.type === "done") {
       bubble.classList.remove("typing");
       const botMsg = { role: "assistant", content: ev.answer, recommendations: ev.recommendations,
-        sources: ev.sources, route: ev.route, timings: ev.debug?.timings_s };
+        examples: ev.examples, sources: ev.sources, route: ev.route, timings: ev.debug?.timings_s };
+      if (ev.intent && ev.route === "rag") state.lastIntent = ev.intent;
       fillMessage(bubble, botMsg);
       mood(ev.route === "error" ? "idle" : "happy", { revertAfter: 4000 });
       state.rendered.push(botMsg);
@@ -212,7 +227,8 @@ async function send(text) {
     const res = await fetch("/api/chat/stream", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, history: state.history, profile: state.profile }),
+      body: JSON.stringify({ message, history: state.history, profile: state.profile,
+        seen_ids: seenIds(), last_intent: state.lastIntent || null }),
     });
     if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
     const reader = res.body.getReader();
@@ -261,7 +277,7 @@ document.querySelectorAll("[data-field]").forEach((sel) => {
 });
 
 $("#reset-btn").addEventListener("click", () => {
-  state = { history: [], profile: emptyProfile(), rendered: [] };
+  state = { history: [], profile: emptyProfile(), rendered: [], lastIntent: null };
   save();
   renderAll();
 });
@@ -307,8 +323,8 @@ function playIntro() {
   const timers = [];
   const finish = () => { timers.forEach(clearTimeout); splash.classList.remove("is-on"); };
   splash.classList.add("is-on");
-  timers.push(setTimeout(() => splash.classList.add("is-cutting"), 2300));
-  timers.push(setTimeout(() => splash.classList.add("is-open"), 3350));
+  timers.push(setTimeout(() => splash.classList.add("is-cutting"), 2300));   // scissors cut down the middle
+  timers.push(setTimeout(() => splash.classList.add("is-open"), 3350));      // halves slide apart
   timers.push(setTimeout(finish, 4300));
   splash.querySelector(".splash-skip").addEventListener("click", finish);
 }

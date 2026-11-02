@@ -39,6 +39,10 @@ def _metadata(entry: dict) -> dict:
     for field, prefix in FLAG_FIELDS.items():
         for value in entry.get(field, []):
             meta[f"{prefix}_{value}"] = True
+    # Names used to spot the style/colour in the answer, and the image-search query for "Lihat contoh".
+    if entry.get("example_names"):
+        meta["example_names"] = "|".join(entry["example_names"])
+        meta["example_query"] = entry["example_query"]
     return meta
 
 

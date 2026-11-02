@@ -9,6 +9,7 @@ import re
 
 from app.profile import Extraction, Profile, describe
 
+# Order matters: more specific patterns first.
 FACE = [
     (r"\b(oval)\b", "oval"),
     (r"\b(bulat|bundar|chubby|tembem)\b", "round"),
@@ -34,7 +35,7 @@ UNDERTONE = [
     (r"\b(neutral|netral)\b", "neutral"),
 ]
 VIRGIN = r"\bvirgin\b|belum pernah (di)?(cat|warna|semir|bleach|apa.?apa)|rambut asli|natural belum"
-
+# Hair history needs a past-tense marker: "pernah di-bleach" is history, "mau bleaching" is a wish.
 PAST = r"(pernah|sudah|udah|bekas|habis|abis|sempat|baru)\s+(\w+\s+){0,2}(di-?)?"
 CONDITION = [
     (PAST + r"(bleach|bleaching|blich)", "bleached"),
@@ -58,8 +59,9 @@ INTENTS = [
     ("product", r"\b(pomade|clay|powder|sampo|shampoo|tonik|tonic|vitamin|serum|beard oil|produk|conditioner)\b"),
     ("hairstyle", r"\b(potong|potongan|gaya|model|style|cukur rambut|haircut|cocok(nya)? (apa|gimana))\b"),
 ]
-
+# Questions about the shop itself are left to the FAQ layer / LLM.
 SHOP = r"\b(harga|berapa|biaya|jam|buka|tutup|alamat|lokasi|booking|reservasi|bayar|qris|debit|antri)\b"
+ALTERNATIVES = r"\b(opsi|pilihan|alternatif|selain itu|yang lain|lainnya|lain lagi|lagi dong|ada lagi)\b"
 GENERAL = r"\b(ga|gak|nggak|enggak|tidak) ?(tau|tahu|yakin)\b|terserah|bebas aja|umum aja"
 
 
@@ -74,7 +76,7 @@ def _all(patterns, text):
     return [value for pattern, value in patterns if re.search(pattern, text)]
 
 
-def quick_extract(message: str, profile: Profile) -> Extraction | None:
+def quick_extract(message: str, profile: Profile, last_intent: str | None = None) -> Extraction | None:
     text = message.lower()
     if re.search(SHOP, text):
         return None
@@ -90,8 +92,11 @@ def quick_extract(message: str, profile: Profile) -> Extraction | None:
     issues = _all(ISSUES, text)
 
     intent = next((name for name, pattern in INTENTS if re.search(pattern, text)), None)
+    alternatives = bool(re.search(ALTERNATIVES, text))
+    if intent is None and alternatives and last_intent in ("hairstyle", "hair_color", "treatment", "product"):
+        intent = last_intent  # "ada opsi lain?" continues the current topic
     if intent is None:
-       
+        # A short reply to the bot's question ("wajahku bulat") -> infer the topic from the slot.
         if face or texture or thickness:
             intent = "hairstyle"
         elif undertone or condition:
@@ -99,7 +104,7 @@ def quick_extract(message: str, profile: Profile) -> Extraction | None:
         elif issues:
             intent = "treatment"
         else:
-            return None  
+            return None  # not confident -> let the LLM handle it
 
     merged = describe(profile)
     query_bits = [message]
@@ -109,5 +114,6 @@ def quick_extract(message: str, profile: Profile) -> Extraction | None:
         intent=intent, face_shape=face, hair_texture=texture, hair_thickness=thickness,
         undertone=undertone, hair_condition=condition, issues=issues,
         wants_general_answer=bool(re.search(GENERAL, text)),
+        wants_alternatives=alternatives,
         search_query=" ; ".join(query_bits),
     )

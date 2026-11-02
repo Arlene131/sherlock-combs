@@ -1,173 +1,673 @@
 [
   {
-    "id": "FG-oval", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah oval",
-    "face_shapes": ["oval"],
+    "id": "FG-oval",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah oval",
+    "face_shapes": [
+      "oval"
+    ],
     "content": "Ciri wajah oval: panjang wajah sedikit lebih besar dari lebarnya, tulang pipi sedikit lebih lebar dari dahi dan rahang, garis rahang lembut. Wajah oval dianggap paling proporsional sehingga cocok dengan hampir semua gaya. Rekomendasi: side part klasik, quiff, textured crop, undercut slick back, buzz cut, pompadour. Hindari poni yang terlalu berat dan menutupi seluruh dahi karena membuat wajah terlihat lebih bulat dan pendek.",
-    "service_ids": ["S01"], "product_ids": []
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-round", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah bulat",
-    "face_shapes": ["round"],
+    "id": "FG-round",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah bulat",
+    "face_shapes": [
+      "round"
+    ],
     "content": "Ciri wajah bulat: panjang dan lebar wajah hampir sama, pipi penuh, garis rahang lembut tanpa sudut tegas. Tujuan potongan: menambah tinggi di bagian atas dan membuat samping tetap tipis agar wajah terlihat lebih panjang dan bersudut. Rekomendasi: quiff, pompadour, faux hawk, undercut atau fade dengan volume di atas, side part dengan samping pendek. Jenggot pendek berbentuk kotak bisa menambah kesan rahang. Hindari: rambut samping tebal/mengembang, potongan bulat tanpa tinggi (bowl cut), dan poni lurus rata yang menutup dahi.",
-    "service_ids": ["S01", "S04", "S19"], "product_ids": []
+    "service_ids": [
+      "S01",
+      "S04",
+      "S19"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-square", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah kotak",
-    "face_shapes": ["square"],
+    "id": "FG-square",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah kotak",
+    "face_shapes": [
+      "square"
+    ],
     "content": "Ciri wajah kotak: panjang dan lebar wajah mirip, dahi lebar, rahang tegas dan bersudut. Wajah kotak terlihat maskulin sehingga cocok dengan potongan pendek dan rapi. Rekomendasi: buzz cut, crew cut, textured crop (French crop), side part dengan fade, quiff, undercut. Stubble tipis menambah tekstur. Hindari: potongan yang terlalu kaku dan rata di semua sisi (misalnya rambut sama panjang membentuk kotak) karena mempertegas kesan kotak secara berlebihan.",
-    "service_ids": ["S01", "S04"], "product_ids": []
+    "service_ids": [
+      "S01",
+      "S04"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-oblong", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah lonjong (oblong/persegi panjang)",
-    "face_shapes": ["oblong"],
+    "id": "FG-oblong",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah lonjong (oblong/persegi panjang)",
+    "face_shapes": [
+      "oblong"
+    ],
     "content": "Ciri wajah lonjong: wajah jelas lebih panjang daripada lebarnya, dahi, pipi, dan rahang hampir sama lebar. Tujuan potongan: tidak menambah tinggi, memberi kesan lebar di samping, dan memendekkan wajah secara visual. Rekomendasi: textured crop dengan poni, fringe/two block Korea, comma hair, curtain hair, side part dengan volume samping secukupnya, crew cut. Hindari: pompadour atau quiff yang tinggi, faux hawk, samping dicukur sangat tipis dengan atas panjang, dan jenggot panjang yang memanjangkan dagu.",
-    "service_ids": ["S01"], "product_ids": []
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-heart", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah hati (heart)",
-    "face_shapes": ["heart"],
+    "id": "FG-heart",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah hati (heart)",
+    "face_shapes": [
+      "heart"
+    ],
     "content": "Ciri wajah hati: dahi paling lebar, menyempit ke dagu yang lancip. Tujuan potongan: menyeimbangkan dahi yang lebar dan menambah kesan penuh di bagian bawah. Rekomendasi: rambut medium yang disisir ke samping, curtain hair, fringe/poni bertekstur, comma hair, wavy medium length, soft mullet modern. Jenggot atau stubble membantu menambah lebar di dagu. Hindari: potongan sangat pendek dan ketat di semua sisi atau volume tinggi di atas karena mempertegas dahi lebar dan dagu sempit.",
-    "service_ids": ["S01", "S04"], "product_ids": []
+    "service_ids": [
+      "S01",
+      "S04"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-diamond", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah diamond",
-    "face_shapes": ["diamond"],
+    "id": "FG-diamond",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah diamond",
+    "face_shapes": [
+      "diamond"
+    ],
     "content": "Ciri wajah diamond: tulang pipi paling lebar, dahi dan rahang lebih sempit, dagu cenderung lancip. Tujuan potongan: menambah kesan lebar di dahi dan melembutkan tulang pipi. Rekomendasi: fringe/poni bertekstur, textured crop, side sweep atau deep side part, curtain hair, rambut medium yang diselipkan ke belakang telinga. Stubble/5 o'clock shadow menambah lebar di dagu. Hindari: samping dicukur sangat tipis (skin fade tinggi) karena mempertegas tulang pipi, dan volume sangat tinggi di atas.",
-    "service_ids": ["S01", "S04"], "product_ids": []
+    "service_ids": [
+      "S01",
+      "S04"
+    ],
+    "product_ids": []
   },
   {
-    "id": "FG-triangle", "category": "face_guide", "title": "Panduan gaya rambut untuk wajah segitiga (pear)",
-    "face_shapes": ["triangle"],
+    "id": "FG-triangle",
+    "category": "face_guide",
+    "title": "Panduan gaya rambut untuk wajah segitiga (pear)",
+    "face_shapes": [
+      "triangle"
+    ],
     "content": "Ciri wajah segitiga: rahang paling lebar, dahi lebih sempit. Tujuan potongan: menambah volume di atas dan bagian dahi agar seimbang dengan rahang. Rekomendasi: quiff, pompadour, textured top dengan volume, side part bervolume, rambut samping tidak dicukur terlalu tipis. Jenggot sebaiknya pendek dan rapi agar rahang tidak terlihat makin lebar. Hindari: potongan sangat pendek di atas (buzz cut) dan jenggot tebal penuh di bagian rahang.",
-    "service_ids": ["S01", "S04"], "product_ids": []
+    "service_ids": [
+      "S01",
+      "S04"
+    ],
+    "product_ids": []
   },
   {
-    "id": "HS-textured-crop", "category": "hairstyle", "title": "Gaya rambut: Textured Crop (French Crop)",
-    "face_shapes": ["oval", "square", "oblong", "diamond", "heart"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-textured-crop",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Textured Crop (French Crop)",
+    "face_shapes": [
+      "oval",
+      "square",
+      "oblong",
+      "diamond",
+      "heart"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Textured Crop: samping pendek (taper atau fade), atas sekitar 3-6 cm dengan tekstur, poni pendek ke depan. Cocok untuk wajah oval, kotak, lonjong, diamond, dan hati karena poni memendekkan dahi. Cocok untuk rambut lurus atau bergelombang yang sedang sampai tebal. Perawatan rendah: rapikan setiap 3-4 minggu. Styling: keringkan dengan handuk, aplikasikan matte clay atau texture powder, acak dengan jari ke depan.",
-    "service_ids": ["S01"], "product_ids": ["P03", "P04"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P03",
+      "P04"
+    ],
+    "example_names": [
+      "Textured Crop",
+      "French Crop"
+    ],
+    "example_query": "textured crop haircut men"
   },
   {
-    "id": "HS-quiff", "category": "hairstyle", "title": "Gaya rambut: Quiff",
-    "face_shapes": ["oval", "round", "square", "triangle"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-quiff",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Quiff",
+    "face_shapes": [
+      "oval",
+      "round",
+      "square",
+      "triangle"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Quiff: samping pendek, atas panjang 6-10 cm yang ditata naik dan sedikit ke belakang di bagian depan. Volume di atas membuat wajah bulat dan segitiga terlihat lebih panjang; cocok juga untuk wajah oval dan kotak. Kurang cocok untuk wajah lonjong dan hati. Cocok untuk rambut lurus atau bergelombang sedang sampai tebal. Styling: semprot heat protectant, blow dry ke atas, lalu pakai water-based pomade untuk tampilan rapi berkilau atau matte clay untuk tampilan natural.",
-    "service_ids": ["S01"], "product_ids": ["P01", "P03", "P12"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P01",
+      "P03",
+      "P12"
+    ],
+    "example_names": [
+      "Quiff"
+    ],
+    "example_query": "quiff haircut men"
   },
   {
-    "id": "HS-pompadour", "category": "hairstyle", "title": "Gaya rambut: Pompadour",
-    "face_shapes": ["oval", "round", "square", "triangle"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["thick", "medium"],
+    "id": "HS-pompadour",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Pompadour",
+    "face_shapes": [
+      "oval",
+      "round",
+      "square",
+      "triangle"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "thick",
+      "medium"
+    ],
     "content": "Pompadour: atas panjang yang disisir ke belakang dengan volume tinggi di depan, samping pendek atau fade. Menambah tinggi sehingga cocok untuk wajah bulat, segitiga, kotak, dan oval. Hindari untuk wajah lonjong dan hati. Butuh rambut cukup tebal. Perawatan sedang: rapikan setiap 3-4 minggu dan styling harian dengan hair dryer. Produk: oil-based pomade untuk kilau klasik atau water-based pomade agar mudah dibilas.",
-    "service_ids": ["S01", "S03"], "product_ids": ["P01", "P02", "P12"]
+    "service_ids": [
+      "S01",
+      "S03"
+    ],
+    "product_ids": [
+      "P01",
+      "P02",
+      "P12"
+    ],
+    "example_names": [
+      "Pompadour"
+    ],
+    "example_query": "pompadour haircut men"
   },
   {
-    "id": "HS-side-part", "category": "hairstyle", "title": "Gaya rambut: Classic Side Part",
-    "face_shapes": ["oval", "square", "oblong", "heart", "round", "diamond", "triangle"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["thin", "medium", "thick"],
+    "id": "HS-side-part",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Classic Side Part",
+    "face_shapes": [
+      "oval",
+      "square",
+      "oblong",
+      "heart",
+      "round",
+      "diamond",
+      "triangle"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "thin",
+      "medium",
+      "thick"
+    ],
     "content": "Classic Side Part: belahan samping dengan samping taper rapi dan atas medium. Gaya klasik yang aman hampir untuk semua bentuk wajah; untuk wajah bulat buat samping lebih tipis, untuk wajah lonjong jangan beri volume tinggi. Cocok untuk rambut lurus dan bergelombang, termasuk rambut tipis. Cocok untuk kerja kantoran dan acara formal. Styling: sisir belahan saat rambut lembap, gunakan water-based pomade.",
-    "service_ids": ["S01"], "product_ids": ["P01"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P01"
+    ],
+    "example_names": [
+      "Side Part"
+    ],
+    "example_query": "classic side part haircut men"
   },
   {
-    "id": "HS-slick-back", "category": "hairstyle", "title": "Gaya rambut: Undercut Slick Back",
-    "face_shapes": ["oval", "square", "round", "diamond"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-slick-back",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Undercut Slick Back",
+    "face_shapes": [
+      "oval",
+      "square",
+      "round",
+      "diamond"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Undercut Slick Back: samping dan belakang dicukur pendek (undercut atau fade), atas panjang disisir rapi ke belakang. Cocok untuk wajah oval dan kotak; untuk wajah bulat beri sedikit volume di depan. Hindari untuk wajah lonjong karena membuat wajah tampak makin panjang. Cocok untuk rambut lurus atau bergelombang. Produk: oil-based pomade untuk kilau tinggi.",
-    "service_ids": ["S01"], "product_ids": ["P02", "P01"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P02",
+      "P01"
+    ],
+    "example_names": [
+      "Slick Back",
+      "Undercut"
+    ],
+    "example_query": "undercut slick back men"
   },
   {
-    "id": "HS-buzz", "category": "hairstyle", "title": "Gaya rambut: Buzz Cut",
-    "face_shapes": ["oval", "square"],
-    "hair_textures": ["straight", "wavy", "curly"], "hair_thickness": ["thin", "medium", "thick"],
+    "id": "HS-buzz",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Buzz Cut",
+    "face_shapes": [
+      "oval",
+      "square"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy",
+      "curly"
+    ],
+    "hair_thickness": [
+      "thin",
+      "medium",
+      "thick"
+    ],
     "content": "Buzz Cut: seluruh rambut dipotong sangat pendek dengan mesin. Paling cocok untuk wajah oval dan kotak dengan rahang tegas. Kurang cocok untuk wajah bulat, segitiga, dan diamond karena memperjelas bentuk kepala dan wajah. Cocok untuk semua tipe rambut, juga pilihan praktis untuk rambut menipis. Perawatan sangat rendah, tanpa produk styling, rapikan setiap 2-3 minggu.",
-    "service_ids": ["S01"], "product_ids": []
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [],
+    "example_names": [
+      "Buzz Cut"
+    ],
+    "example_query": "buzz cut men"
   },
   {
-    "id": "HS-crew-cut", "category": "hairstyle", "title": "Gaya rambut: Crew Cut / Ivy League",
-    "face_shapes": ["oval", "square", "round", "oblong"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["thin", "medium", "thick"],
+    "id": "HS-crew-cut",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Crew Cut / Ivy League",
+    "face_shapes": [
+      "oval",
+      "square",
+      "round",
+      "oblong"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "thin",
+      "medium",
+      "thick"
+    ],
     "content": "Crew Cut: atas pendek sekitar 2-4 cm dengan bagian depan sedikit lebih panjang, samping taper. Ivy League adalah versi sedikit lebih panjang yang bisa dibelah samping. Rapi, maskulin, dan cocok untuk wajah oval, kotak, bulat (dengan depan sedikit naik), dan lonjong (atas tetap pendek). Pilihan bagus untuk rambut tipis karena tidak menonjolkan kepadatan. Styling ringan dengan matte clay atau texture powder.",
-    "service_ids": ["S01"], "product_ids": ["P03", "P04"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P03",
+      "P04"
+    ],
+    "example_names": [
+      "Crew Cut",
+      "Ivy League"
+    ],
+    "example_query": "crew cut ivy league haircut men"
   },
   {
-    "id": "HS-faux-hawk", "category": "hairstyle", "title": "Gaya rambut: Faux Hawk",
-    "face_shapes": ["round", "oval", "square"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-faux-hawk",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Faux Hawk",
+    "face_shapes": [
+      "round",
+      "oval",
+      "square"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Faux Hawk: bagian tengah atas lebih panjang dan ditata meruncing ke atas, samping pendek. Menambah tinggi sehingga cocok untuk wajah bulat, oval, dan kotak. Hindari untuk wajah lonjong. Butuh rambut sedang sampai tebal. Produk: matte clay untuk hold kuat.",
-    "service_ids": ["S01"], "product_ids": ["P03"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P03"
+    ],
+    "example_names": [
+      "Faux Hawk"
+    ],
+    "example_query": "faux hawk haircut men"
   },
   {
-    "id": "HS-two-block", "category": "hairstyle", "title": "Gaya rambut: Two Block / Korean Fringe",
-    "face_shapes": ["oblong", "heart", "diamond", "oval"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-two-block",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Two Block / Korean Fringe",
+    "face_shapes": [
+      "oblong",
+      "heart",
+      "diamond",
+      "oval"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Two Block (gaya Korea): samping dan belakang dipotong pendek tanpa fade, lapisan atas panjang menutup sebagian samping dengan poni ke depan. Poni membuat wajah lonjong, hati, dan diamond terlihat lebih seimbang; cocok juga untuk oval. Kurang cocok untuk wajah bulat karena menambah kesan lebar. Untuk rambut lurus yang samping-sampingnya mekar, kombinasikan dengan Down Perm agar menempel rapi. Styling: sea salt spray lalu sedikit matte clay.",
-    "service_ids": ["S01", "S19"], "product_ids": ["P05", "P03"]
+    "service_ids": [
+      "S01",
+      "S19"
+    ],
+    "product_ids": [
+      "P05",
+      "P03"
+    ],
+    "example_names": [
+      "Two Block",
+      "Korean Fringe"
+    ],
+    "example_query": "two block haircut korean men"
   },
   {
-    "id": "HS-comma", "category": "hairstyle", "title": "Gaya rambut: Comma Hair",
-    "face_shapes": ["oblong", "heart", "oval", "diamond"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-comma",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Comma Hair",
+    "face_shapes": [
+      "oblong",
+      "heart",
+      "oval",
+      "diamond"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Comma Hair: poni panjang yang ujungnya melengkung ke dalam seperti tanda koma, populer dari gaya Korea. Cocok untuk wajah lonjong, hati, oval, dan diamond. Untuk rambut lurus yang sulit membentuk lengkungan, bisa dibantu dengan Perm agar lengkungan tahan lama, dan Down Perm untuk samping yang mekar. Styling: blow dry poni melengkung ke dalam, sedikit sea salt spray atau matte clay.",
-    "service_ids": ["S01", "S18", "S19"], "product_ids": ["P05", "P03", "P12"]
+    "service_ids": [
+      "S01",
+      "S18",
+      "S19"
+    ],
+    "product_ids": [
+      "P05",
+      "P03",
+      "P12"
+    ],
+    "example_names": [
+      "Comma Hair"
+    ],
+    "example_query": "comma hair men korean"
   },
   {
-    "id": "HS-curtain", "category": "hairstyle", "title": "Gaya rambut: Curtain Hair (belah tengah)",
-    "face_shapes": ["heart", "oval", "diamond", "oblong"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-curtain",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Curtain Hair (belah tengah)",
+    "face_shapes": [
+      "heart",
+      "oval",
+      "diamond",
+      "oblong"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Curtain Hair: rambut medium dibelah tengah atau agak ke samping dengan poni jatuh ke dua sisi seperti tirai. Cocok untuk wajah hati, oval, diamond, dan lonjong karena poni menutupi sebagian dahi dan menambah lebar di samping. Kurang cocok untuk wajah bulat. Untuk rambut lurus yang lepek, Perm ringan bisa menambah volume. Styling: sea salt spray dan blow dry ke arah belahan.",
-    "service_ids": ["S01", "S18"], "product_ids": ["P05", "P12"]
+    "service_ids": [
+      "S01",
+      "S18"
+    ],
+    "product_ids": [
+      "P05",
+      "P12"
+    ],
+    "example_names": [
+      "Curtain Hair",
+      "Curtains"
+    ],
+    "example_query": "curtain hairstyle men"
   },
   {
-    "id": "HS-curly-fade", "category": "hairstyle", "title": "Gaya rambut: Curly Top dengan Fade",
-    "face_shapes": ["round", "oval", "square", "heart", "diamond", "oblong"],
-    "hair_textures": ["curly", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-curly-fade",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Curly Top dengan Fade",
+    "face_shapes": [
+      "round",
+      "oval",
+      "square",
+      "heart",
+      "diamond",
+      "oblong"
+    ],
+    "hair_textures": [
+      "curly",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Curly Top dengan Fade: samping fade pendek, bagian atas mempertahankan ikal alami. Cocok untuk rambut keriting dan bergelombang. Wajah bulat dan segitiga: biarkan atas lebih tinggi. Wajah lonjong: jaga atas tetap pendek dan fade jangan terlalu tinggi. Wajah hati dan diamond: biarkan ikal jatuh sedikit ke dahi. Perawatan: kondisioner rutin agar ikal tidak kering, sea salt spray untuk definisi ikal.",
-    "service_ids": ["S01"], "product_ids": ["P05", "P10"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P05",
+      "P10"
+    ],
+    "example_names": [
+      "Curly Top",
+      "Curly Fade"
+    ],
+    "example_query": "curly top fade haircut men"
   },
   {
-    "id": "HS-curly-fringe", "category": "hairstyle", "title": "Gaya rambut: Curly Fringe / Messy Curls",
-    "face_shapes": ["oblong", "heart", "diamond", "oval"],
-    "hair_textures": ["curly", "wavy"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-curly-fringe",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Curly Fringe / Messy Curls",
+    "face_shapes": [
+      "oblong",
+      "heart",
+      "diamond",
+      "oval"
+    ],
+    "hair_textures": [
+      "curly",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Curly Fringe: ikal di bagian atas dibiarkan jatuh ke depan menjadi poni bertekstur, samping taper. Cocok untuk wajah lonjong, hati, diamond, dan oval. Bisa juga untuk rambut lurus yang dibuat ikal menggunakan Perm. Styling: sea salt spray saat rambut lembap, keringkan alami atau dengan diffuser, lalu sedikit matte clay.",
-    "service_ids": ["S01", "S18"], "product_ids": ["P05", "P03"]
+    "service_ids": [
+      "S01",
+      "S18"
+    ],
+    "product_ids": [
+      "P05",
+      "P03"
+    ],
+    "example_names": [
+      "Curly Fringe",
+      "Messy Curls"
+    ],
+    "example_query": "curly fringe haircut men"
   },
   {
-    "id": "HS-flow", "category": "hairstyle", "title": "Gaya rambut: Medium Length Flow",
-    "face_shapes": ["heart", "diamond", "oval", "oblong", "square"],
-    "hair_textures": ["wavy", "straight"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-flow",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Medium Length Flow",
+    "face_shapes": [
+      "heart",
+      "diamond",
+      "oval",
+      "oblong",
+      "square"
+    ],
+    "hair_textures": [
+      "wavy",
+      "straight"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Medium Length Flow: rambut sebahu atau sedikit di atasnya, disisir ke belakang atau ke samping dengan gerak alami. Cocok untuk wajah hati, diamond, oval, kotak, dan lonjong (beri volume di samping, bukan di atas). Paling bagus untuk rambut bergelombang. Perawatan: rapikan ujung setiap 6-8 minggu, gunakan kondisioner dan vitamin rambut agar ujung tidak kering.",
-    "service_ids": ["S01", "S14"], "product_ids": ["P05", "P10", "P11"]
+    "service_ids": [
+      "S01",
+      "S14"
+    ],
+    "product_ids": [
+      "P05",
+      "P10",
+      "P11"
+    ],
+    "example_names": [
+      "Medium Length Flow"
+    ],
+    "example_query": "medium length flow hairstyle men"
   },
   {
-    "id": "HS-mullet", "category": "hairstyle", "title": "Gaya rambut: Modern Mullet",
-    "face_shapes": ["heart", "oval", "diamond"],
-    "hair_textures": ["straight", "wavy", "curly"], "hair_thickness": ["medium", "thick"],
+    "id": "HS-mullet",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Modern Mullet",
+    "face_shapes": [
+      "heart",
+      "oval",
+      "diamond"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy",
+      "curly"
+    ],
+    "hair_thickness": [
+      "medium",
+      "thick"
+    ],
     "content": "Modern Mullet: depan dan samping lebih pendek, belakang dibiarkan lebih panjang, biasanya dengan tekstur. Versi soft mullet cocok untuk wajah hati, oval, dan diamond karena menambah bobot di bagian bawah. Cocok untuk rambut bergelombang atau keriting agar tekstur terlihat. Styling: sea salt spray dan sedikit matte clay.",
-    "service_ids": ["S01"], "product_ids": ["P05", "P03"]
+    "service_ids": [
+      "S01"
+    ],
+    "product_ids": [
+      "P05",
+      "P03"
+    ],
+    "example_names": [
+      "Mullet"
+    ],
+    "example_query": "modern mullet haircut men"
   },
   {
-    "id": "HS-short-textured-thin", "category": "hairstyle", "title": "Gaya rambut untuk rambut tipis: Short Textured Cut",
-    "face_shapes": ["oval", "round", "square", "oblong", "heart", "diamond", "triangle"],
-    "hair_textures": ["straight", "wavy"], "hair_thickness": ["thin"],
+    "id": "HS-short-textured-thin",
+    "category": "hairstyle",
+    "title": "Gaya rambut untuk rambut tipis: Short Textured Cut",
+    "face_shapes": [
+      "oval",
+      "round",
+      "square",
+      "oblong",
+      "heart",
+      "diamond",
+      "triangle"
+    ],
+    "hair_textures": [
+      "straight",
+      "wavy"
+    ],
+    "hair_thickness": [
+      "thin"
+    ],
     "content": "Short Textured Cut untuk rambut tipis: atas pendek 2-4 cm yang diberi tekstur, samping taper. Rambut pendek bertekstur membuat rambut tipis terlihat lebih padat dibanding rambut panjang yang lepek. Untuk wajah bulat dan segitiga, arahkan depan sedikit naik; untuk wajah lonjong, hati, dan diamond, arahkan ke depan sebagai poni pendek. Hindari slick back dan rambut panjang lurus karena menampakkan kulit kepala. Produk: texture powder untuk volume, hindari oil-based pomade yang membuat rambut lepek. Perm ringan bisa menambah volume.",
-    "service_ids": ["S01", "S18"], "product_ids": ["P04", "P03"]
+    "service_ids": [
+      "S01",
+      "S18"
+    ],
+    "product_ids": [
+      "P04",
+      "P03"
+    ],
+    "example_names": [
+      "Short Textured Cut",
+      "Short Textured"
+    ],
+    "example_query": "short textured haircut men thin hair"
   },
   {
-    "id": "HS-afro-taper", "category": "hairstyle", "title": "Gaya rambut: Afro Taper / High Top untuk rambut keriting rapat",
-    "face_shapes": ["round", "oval", "square", "triangle"],
-    "hair_textures": ["curly"], "hair_thickness": ["thick"],
+    "id": "HS-afro-taper",
+    "category": "hairstyle",
+    "title": "Gaya rambut: Afro Taper / High Top untuk rambut keriting rapat",
+    "face_shapes": [
+      "round",
+      "oval",
+      "square",
+      "triangle"
+    ],
+    "hair_textures": [
+      "curly"
+    ],
+    "hair_thickness": [
+      "thick"
+    ],
     "content": "Afro Taper: rambut keriting rapat dibiarkan bervolume di atas, samping dan belakang di-taper rapi. Volume atas cocok untuk wajah bulat, oval, kotak, dan segitiga. Untuk wajah lonjong, jaga volume atas tetap rendah. Perawatan: rambut keriting cenderung kering sehingga butuh kondisioner rutin dan hair spa berkala.",
-    "service_ids": ["S01", "S14"], "product_ids": ["P10", "P11"]
+    "service_ids": [
+      "S01",
+      "S14"
+    ],
+    "product_ids": [
+      "P10",
+      "P11"
+    ],
+    "example_names": [
+      "Afro Taper",
+      "High Top"
+    ],
+    "example_query": "afro taper haircut men"
   },
   {
-    "id": "HT-guide", "category": "hair_type_guide", "title": "Cara mengenali tipe dan ketebalan rambut",
+    "id": "HT-guide",
+    "category": "hair_type_guide",
+    "title": "Cara mengenali tipe dan ketebalan rambut",
     "content": "Tekstur rambut: lurus (jatuh rata tanpa lengkungan saat kering alami), bergelombang (membentuk huruf S longgar), keriting (membentuk ikal atau spiral jelas). Ketebalan: tipis jika kulit kepala mudah terlihat saat rambut dibelah atau rambut cepat lepek; sedang jika kulit kepala sedikit terlihat; tebal jika kulit kepala sulit terlihat dan rambut mudah mengembang. Rambut lurus tebal sering mekar di samping dan cocok dengan Down Perm. Rambut tipis lebih cocok potongan pendek bertekstur dengan texture powder. Rambut keriting cocok dengan potongan yang menonjolkan ikal dan butuh pelembap.",
-    "service_ids": ["S19"], "product_ids": ["P04", "P05", "P10"]
+    "service_ids": [
+      "S19"
+    ],
+    "product_ids": [
+      "P04",
+      "P05",
+      "P10"
+    ]
   },
   {
-    "id": "FS-identify", "category": "face_guide", "title": "Cara mengenali bentuk wajah sendiri",
+    "id": "FS-identify",
+    "category": "face_guide",
+    "title": "Cara mengenali bentuk wajah sendiri",
     "content": "Cara mengenali bentuk wajah: ikat atau sisir rambut ke belakang, berdiri di depan cermin, lalu bandingkan empat ukuran: lebar dahi, lebar tulang pipi, lebar rahang, dan panjang wajah (dari garis rambut ke dagu). Oval: wajah lebih panjang dari lebar, rahang lembut. Bulat: panjang dan lebar hampir sama, rahang lembut. Kotak: panjang dan lebar hampir sama, rahang tegas bersudut. Lonjong: wajah jelas lebih panjang dari lebar, dahi-pipi-rahang hampir sama lebar. Hati: dahi paling lebar, dagu lancip. Diamond: tulang pipi paling lebar, dahi dan rahang sempit. Segitiga: rahang paling lebar, dahi sempit. Jika ragu, pengguna bisa memakai fitur deteksi bentuk wajah dengan kamera di website ini.",
-    "service_ids": [], "product_ids": []
+    "service_ids": [],
+    "product_ids": []
   }
 ]

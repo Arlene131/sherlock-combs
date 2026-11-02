@@ -10,6 +10,7 @@ from app.embeddings import get_embedder
 from app.profile import Profile
 from app.vector_store import FAQ, KNOWLEDGE, query
 
+# intent -> list of (categories, profile filters to apply, k)
 PLANS: dict[str, list[tuple[list[str], list[str], int]]] = {
     "hairstyle": [
         (["face_guide"], ["face"], 1),
@@ -67,12 +68,17 @@ def _where(categories: list[str] | None, clauses: list[dict]) -> dict | None:
     return parts[0] if len(parts) == 1 else {"$and": parts}
 
 
-def _filtered_search(vector, categories, filter_names, k, profile) -> list[dict]:
+# Guide chunks are background context; they may be repeated even when the user asks for alternatives.
+GUIDE_CATEGORIES = {"face_guide", "hair_type_guide", "color_guide", "undertone_guide", "product_guide"}
+
+
+def _filtered_search(vector, categories, filter_names, k, profile, exclude=frozenset()) -> list[dict]:
     clauses_per_filter = [_flag_filters(n, profile) for n in filter_names]
     # Relax filters from the last (least important) to the first.
     for keep in range(len(clauses_per_filter), -1, -1):
         clauses = [c for group in clauses_per_filter[:keep] for c in group]
-        hits = query(KNOWLEDGE, vector, k, _where(categories, clauses))
+        hits = query(KNOWLEDGE, vector, k + len(exclude), _where(categories, clauses))
+        hits = [h for h in hits if h["id"] not in exclude][:k]
         if len(hits) >= min(k, 2) or keep == 0:
             for h in hits:
                 h["filters"] = [n for n in filter_names[:keep] if _flag_filters(n, profile)]
@@ -80,17 +86,22 @@ def _filtered_search(vector, categories, filter_names, k, profile) -> list[dict]
     return []
 
 
-def retrieve(search_query: str, intent: str, profile: Profile) -> list[dict]:
+def retrieve(search_query: str, intent: str, profile: Profile,
+             exclude: set[str] | None = None, alternatives: bool = False) -> list[dict]:
+    """exclude: chunk ids already shown earlier; skipped (except guides) when the user asks for alternatives."""
     vector = get_embedder().embed_query(search_query)
     results: dict[str, dict] = {}
+    skip = frozenset(exclude or ()) if alternatives else frozenset()
 
     for categories, filter_names, k in PLANS.get(intent, []):
-        for hit in _filtered_search(vector, categories, filter_names, k, profile):
+        is_guide = bool(categories) and set(categories) <= GUIDE_CATEGORIES
+        for hit in _filtered_search(vector, categories, filter_names, k, profile,
+                                    frozenset() if is_guide else skip):
             results.setdefault(hit["id"], hit)
 
     # Unfiltered semantic search as a safety net.
-    for hit in query(KNOWLEDGE, vector, settings.rag_top_k):
-        if hit["score"] >= settings.rag_min_score:
+    for hit in query(KNOWLEDGE, vector, settings.rag_top_k + len(skip)):
+        if hit["score"] >= settings.rag_min_score and hit["id"] not in skip:
             results.setdefault(hit["id"], hit)
 
     return sorted(results.values(), key=lambda h: h["score"], reverse=True)

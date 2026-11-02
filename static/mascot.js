@@ -88,7 +88,6 @@ export function mascotSVG(extraClass = "") {
 </svg>`;
 }
 
-/** Switch the mood of one mascot <svg> or of every mascot inside a container. */
 export function setMood(target, mood) {
   const svgs = target.matches?.("svg.mascot") ? [target] : target.querySelectorAll("svg.mascot");
   for (const svg of svgs) {
@@ -97,7 +96,6 @@ export function setMood(target, mood) {
   }
 }
 
-/** Fill every element marked with data-mascot with a fresh mascot. */
 export function mountMascots(root = document) {
   root.querySelectorAll("[data-mascot]").forEach((el) => {
     const value = el.dataset.mascot || "";

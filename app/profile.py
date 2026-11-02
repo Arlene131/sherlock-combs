@@ -38,6 +38,7 @@ class Extraction(BaseModel):
     hair_condition: list[Condition] = Field(default_factory=list)
     issues: list[Issue] = Field(default_factory=list)
     wants_general_answer: bool = False
+    wants_alternatives: bool = False
     search_query: str = ""
 
 
