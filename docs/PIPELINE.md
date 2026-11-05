@@ -146,3 +146,22 @@ measurements are logged to the browser console).
 | `FAQ_MIN_SCORE` | 0.90 | Higher = FAQ shortcut only for near-identical questions |
 | `HISTORY_TURNS` | 6 | Messages of history given to the LLM |
 | `LLM_TEMPERATURE` | 0.4 | Creativity of answers (profiling always uses 0) |
+
+## 9. Security guardrails (`app/guard.py`)
+
+Defence in depth, structured like Guardrails AI (Guard → validators → on_fail), implemented without
+the `guardrails-ai` package because it adds ~240 MB (over Vercel's 500 MB limit) and conflicts with
+`google-genai` on `tenacity`.
+
+| Layer | Where | What it stops |
+|---|---|---|
+| 1. Input rules | before any LLM call | injection phrases (ID/EN), fake role tags, encoded payloads, non-consultation tasks (code, poems, recipes, school work, politics), > 500 chars |
+| 2. Untrusted history | before prompting | forged assistant/system turns sent by the browser |
+| 3. Topic gate | after profiling | off-topic intents (LLM `on_topic` flag + domain allow-list) |
+| 4. Prompt design | prompts.py | user text wrapped in `<pesan_pengguna>` and declared as data; `<`/`>` neutralised |
+| 5. Output rules | while generating | prompt leaks, code |
+| 6. LLM judge (`RestrictToTopic`) | risky inputs + every answer | disguised tasks, e.g. "format this recipe for the barbershop waiting room" |
+
+Answers are generated in full and validated **before** anything reaches the UI; the judge fails
+closed. A per-client rate limit (15 messages/minute) protects the API quota.
+`tests/test_security.py` holds the red-team cases.

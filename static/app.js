@@ -1,3 +1,6 @@
+// Chat UI logic. The browser keeps the conversation + profile and sends them
+// with every request, so the backend can stay stateless.
+// face.js (MediaPipe from CDN) is loaded lazily on click, so the chat still works if the CDN is unreachable.
 import { mountMascots, setMood } from "/static/mascot.js";
 
 const STORAGE_KEY = "sherlock-combs-chat-v1";
@@ -54,6 +57,7 @@ function escapeHtml(s) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+// Minimal, safe markdown: paragraphs, bullet/numbered lists, **bold**, *italic*.
 function renderMarkdown(text) {
   const inline = (s) => escapeHtml(s)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -117,6 +121,7 @@ function fillMessage(el, msg) {
       el.appendChild(box);
     }
     if (msg.sources?.length) {
+      // Transparency for demos: which chunks were retrieved and their similarity scores.
       const det = document.createElement("details");
       det.className = "sources";
       const route = { faq: "FAQ (tanpa LLM)", ask: "bertanya balik", rag: "RAG" }[msg.route] || msg.route;
@@ -171,6 +176,7 @@ function renderProfile() {
   $("#profile-count").textContent = `${filled}/5`;
 }
 
+/** Chunk ids used in earlier answers, so "ada opsi lain?" gets new suggestions. */
 function seenIds() {
   const ids = state.rendered.filter((m) => m.role === "assistant" && m.route === "rag")
     .flatMap((m) => (m.sources || []).map((s) => s.id));
@@ -194,6 +200,7 @@ async function send(text) {
   mood("thinking");
   let streamed = "";
 
+  // Events arrive as NDJSON lines: status -> profile -> delta… -> done
   const handle = (ev) => {
     if (ev.type === "status" && !streamed) {
       bubble.textContent = ev.text.replace("…", "");
@@ -212,7 +219,7 @@ async function send(text) {
         examples: ev.examples, sources: ev.sources, route: ev.route, timings: ev.debug?.timings_s };
       if (ev.intent && ev.route === "rag") state.lastIntent = ev.intent;
       fillMessage(bubble, botMsg);
-      mood(ev.route === "error" ? "idle" : "happy", { revertAfter: 4000 });
+      mood(["error", "blocked"].includes(ev.route) ? "idle" : "happy", { revertAfter: 4000 });
       state.rendered.push(botMsg);
       state.history.push({ role: "user", content: message }, { role: "assistant", content: ev.answer });
       state.history = state.history.slice(-12);
@@ -230,6 +237,8 @@ async function send(text) {
       body: JSON.stringify({ message, history: state.history, profile: state.profile,
         seen_ids: seenIds(), last_intent: state.lastIntent || null }),
     });
+    if (res.status === 429) throw new Error("Terlalu banyak pesan dalam 1 menit, tunggu sebentar ya");
+    if (res.status === 400) throw new Error("Pesannya terlalu panjang, maksimal 500 karakter");
     if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
@@ -248,7 +257,7 @@ async function send(text) {
     if (buffer.trim()) handle(JSON.parse(buffer));
   } catch (err) {
     bubble.classList.remove("typing");
-    bubble.textContent = `Maaf, terjadi kesalahan (${err.message}). Coba lagi ya.`;
+    bubble.textContent = err.message.startsWith("HTTP") ? `Maaf, terjadi kesalahan (${err.message}). Coba lagi ya.` : err.message + ".";
     mood("idle");
   } finally {
     sendBtn.disabled = false;
@@ -261,6 +270,7 @@ function autosize() {
   input.style.height = Math.min(input.scrollHeight, 140) + "px";
 }
 
+// ---- events ----
 $("#chat-form").addEventListener("submit", (e) => { e.preventDefault(); send(input.value); });
 input.addEventListener("input", autosize);
 input.addEventListener("keydown", (e) => {
@@ -313,6 +323,7 @@ async function scanFace() {
 $("#face-scan-btn").addEventListener("click", scanFace);
 $("#composer-camera").addEventListener("click", scanFace);
 
+// ---- intro: "Hello", then the page is cut open like gift paper (once per browser session) ----
 function playIntro() {
   const splash = $("#splash");
   let seen = false;

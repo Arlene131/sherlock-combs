@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  
+  <!-- Intro: "Hello" greeting, then the page is cut open like gift paper -->
   <div id="splash" class="splash" aria-hidden="true">
     <div class="half half-left"></div>
     <div class="half half-right"></div>
@@ -31,14 +31,15 @@
     </svg>
     <div class="splash-content">
       <div class="splash-mascot" data-mascot="wave"></div>
-      <h1 class="splash-hello">alright?</h1>
-      <p class="splash-sub">hi! aku Sherlock Combs</p>
-      <p class="splash-note">Konsultan rambut virtualmu</p>
+      <h1 class="splash-hello">Hello!</h1>
+      <p class="splash-sub">Selamat datang di Sherlock Combs</p>
+      <p class="splash-note">Konsultan rambut virtualmu siap bantu</p>
     </div>
     <button type="button" class="splash-skip">Lewati</button>
   </div>
 
   <div class="app">
+    <!-- left: brand + mascot -->
     <aside class="sidebar">
       <div class="brand">
         <span class="brand-name">SHERLOCK COMBS</span>
@@ -47,7 +48,7 @@
 
       <div class="mascot-card">
         <div class="mascot-stage" id="main-mascot" data-mascot></div>
-        <p class="mascot-status" id="mascot-status">Sir Sherlock Combs</p>
+        <p class="mascot-status" id="mascot-status">Siap bantu kamu</p>
       </div>
 
       <ul class="topics">
@@ -62,6 +63,7 @@
       </button>
     </aside>
 
+    <!-- center + right: one white card -->
     <div class="workspace">
       <section class="chat">
         <header class="chat-header">
@@ -85,7 +87,7 @@
           <button type="button" class="composer-icon" id="composer-camera" aria-label="Deteksi wajah dengan kamera">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
           </button>
-          <textarea id="input" rows="1" maxlength="1000" placeholder="Tanya soal gaya rambut, warna, perawatan…" required></textarea>
+          <textarea id="input" rows="1" maxlength="500" placeholder="Tanya soal gaya rambut, warna, perawatan…" required></textarea>
           <button type="submit" id="send-btn" class="send-btn" aria-label="Kirim">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z" fill="currentColor"/></svg>
           </button>

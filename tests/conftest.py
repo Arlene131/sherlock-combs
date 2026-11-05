@@ -42,3 +42,11 @@ def indexed():
     ingest.ingest_knowledge(fake)
     ingest.ingest_faq(fake)
     yield
+
+
+@pytest.fixture(autouse=True)
+def allow_topic_judge(monkeypatch):
+    """By default the LLM topic judge approves; security tests override this to simulate rejections."""
+    from app import guard
+
+    monkeypatch.setattr(guard, "judge_topic", lambda text, kind: guard.TopicVerdict(allowed=True))

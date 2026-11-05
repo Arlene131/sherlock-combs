@@ -4,8 +4,12 @@
   2. Profiling        - fast LLM extracts intent + profile slots from the message.
   3. Slot check       - required info missing? ask the user (with guides) instead of guessing.
   4. Retrieval        - metadata-filtered search in ChromaDB.
-  5. Generation       - LLM answers from context + full catalog (catalog grounding), streamed.
+  5. Generation       - LLM answers from context + full catalog (catalog grounding); the answer is
+                        validated by the output guard before it is sent to the UI.
   6. Guardrail        - recommended IDs not in the catalog are dropped; prices come from catalog.
+
+Security (app/guard.py) wraps the whole pipeline: input guard before step 1, topic gate after step 2,
+output guard during/after step 5. Blocked requests never reach the LLM.
 
 answer_events() yields events so the UI can show progress and stream text:
   {"type": "status", "text": ...}   {"type": "delta", "text": ...}   {"type": "done", ...result}
@@ -17,13 +21,14 @@ from urllib.parse import quote_plus
 
 from pydantic import BaseModel, Field
 
-from app import llm, prompts
+from app import guard, llm, prompts
 from app.catalog import catalog_as_prompt_text, to_cards
 from app.config import settings
 from app.profile import LABELS_ID, Extraction, Profile, describe, merge, missing_slots
 from app.quick_extract import quick_extract
 from app.retriever import get_guides, match_faq, retrieve
 
+# Safety net: remove any greeting the model still writes at the start ("Halo bro!", "Hai,", "Greetings!").
 GREETING = re.compile(
     r"^\s*(?:halo|hallo|hai|hi|hey|hei|greetings|selamat\s+(?:pagi|siang|sore|malam))\b"
     r"(?:\s+(?:bro|sis|kak|gan|mas|bang|guys|kawan|sob|sobat|teman)\b)?\s*[!.,]*\s*",
@@ -39,7 +44,6 @@ def strip_greeting(text: str) -> str:
 
 
 MARKER = re.compile(r"\n?\s*\**REKOMENDASI\**\s*:(.*)$", re.IGNORECASE | re.DOTALL)
-HOLD_BACK = 40  # characters kept back while streaming, so the marker line never flashes on screen
 
 
 class ChatMessage(BaseModel):
@@ -108,29 +112,61 @@ def split_marker(text: str) -> tuple[str, list[str]]:
     return text[:match.start()].strip(), ids
 
 
-def _stream_answer(system: str, prompt: str) -> Iterator[dict | tuple]:
-    """Stream LLM text as delta events, hiding the marker line. Finally yields ('final', text)."""
-    raw, emitted = "", 0
+class GuardViolation(Exception):
+    pass
+
+
+def _generate(system: str, prompt: str) -> str:
+    """Collect the full LLM answer. Leaks/code abort generation immediately (output rules)."""
+    raw = ""
     for chunk in llm.stream_text(system, prompt):
         raw += chunk
-        full = strip_greeting(raw)
-        match = MARKER.search(full)
-        safe_end = match.start() if match else max(emitted, len(full) - HOLD_BACK)
-        if safe_end > emitted:
-            yield {"type": "delta", "text": full[emitted:safe_end]}
-            emitted = safe_end
-    full = strip_greeting(raw)
-    match = MARKER.search(full)
-    end = match.start() if match else len(full)
-    if end > emitted:
-        yield {"type": "delta", "text": full[emitted:end]}
-    yield ("final", full)
+        reason = guard.output_violation(strip_greeting(raw))
+        if reason:
+            raise GuardViolation(reason)
+    return strip_greeting(raw)
+
+
+def _emit(text: str, size: int = 24) -> Iterator[dict]:
+    """Send an already-validated answer to the UI in small pieces (typing effect)."""
+    for i in range(0, len(text), size):
+        yield {"type": "delta", "text": text[i:i + size]}
+
+
+def _checked_answer(system: str, prompt: str) -> str:
+    """Generate, then run the output guard BEFORE anything is shown. Returns the visible text."""
+    final = _generate(system, prompt)
+    visible, _ = split_marker(final)
+    result = guard.output_guard.validate(visible)
+    if not result.passed:
+        raise GuardViolation(f"{result.validator}:{result.reason}"[:120])
+    return final
+
+
+def _blocked(profile, reason: str, timings=None) -> dict:
+    return _done(guard.REFUSAL, profile, "blocked", debug={"blocked": reason, "timings_s": timings or {}})
 
 
 def answer_events(req: ChatRequest) -> Iterator[dict]:
     message = req.message.strip()
-    history = _history_text(req.history)
     profile = req.profile
+
+    # Security layer 1: rule-based input guard (no LLM call for anything suspicious)
+    result = guard.input_guard_fast.validate(message)
+    if not result.passed:
+        yield _blocked(profile, result.reason)
+        return
+    if guard.is_greeting_only(message):
+        yield _done(guard.GREETING_REPLY, profile, "greeting", "greeting")
+        return
+    # Security layer 2: history comes from the browser, so treat it as untrusted
+    history = _history_text(guard.sanitize_history(req.history))
+    # Security layer 6a: long / multi-line messages get an LLM topic judge before anything else
+    if guard.is_risky(message):
+        result = guard.input_guard_llm.validate(message)
+        if not result.passed:
+            yield _blocked(profile, f"input_{result.validator}")
+            return
     timings: dict[str, float] = {}
     t = time.perf_counter()
 
@@ -162,6 +198,11 @@ def answer_events(req: ChatRequest) -> Iterator[dict]:
                 Extraction, temperature=0.0, model=settings.gemini_fast_model,
             )
         lap(f"profiling_{profiler}")
+
+        # Security layer 3: topic gate
+        if not ext.on_topic or (ext.intent in ("general", "greeting") and not guard.on_domain(message)):
+            yield _blocked(req.profile, "off_topic", timings)
+            return
         profile = merge(profile, ext)
         intent = ext.intent
         search_query = ext.search_query or message
@@ -173,14 +214,11 @@ def answer_events(req: ChatRequest) -> Iterator[dict]:
             guides = get_guides(missing)
             prompt = prompts.build_ask_prompt(history, describe(profile), message,
                                               ", ".join(LABELS_ID[m] for m in missing), _context_text(guides))
-            final = ""
-            for ev in _stream_answer(prompts.ASK_SYSTEM, prompt):
-                if isinstance(ev, tuple):
-                    final = ev[1]
-                else:
-                    yield ev
+            yield {"type": "status", "text": "Menyusun jawaban…"}
+            final = _checked_answer(prompts.ASK_SYSTEM, prompt)
             lap("generation")
             text, _ = split_marker(final)
+            yield from _emit(text)
             yield _done(text, profile, "ask", intent, sources=_sources(guides),
                         debug={"missing": missing, "search_query": search_query, "timings_s": timings})
             return
@@ -197,24 +235,26 @@ def answer_events(req: ChatRequest) -> Iterator[dict]:
                                     "dan sarankan konsultasi gratis dengan barber.\n") if ext.wants_general_answer else "")
         prompt = prompts.build_answer_prompt(history, describe(profile), message, _context_text(hits),
                                              catalog_as_prompt_text(), general_note)
-        final = ""
-        for ev in _stream_answer(prompts.ANSWER_SYSTEM, prompt):
-            if isinstance(ev, tuple):
-                final = ev[1]
-            else:
-                yield ev
+        yield {"type": "status", "text": "Menyusun & memeriksa jawaban…"}
+        final = _checked_answer(prompts.ANSWER_SYSTEM, prompt)
         lap("generation")
+    except GuardViolation as exc:  # Security layers 5/6b: the output guard rejected the answer
+        yield _blocked(profile, f"output_{exc}", timings)
+        return
     except llm.LLMError as exc:
-        yield _done("Maaf, Sherlock lagi gangguan koneksi ke AI. Coba lagi sebentar ya. "
-                    f"(detail: {exc})", profile, "error", debug={"timings_s": timings})
+        print(f"LLM error: {exc}", flush=True)  # details go to the server log, never to the user
+        yield _done("Maaf, Sherlock lagi gangguan koneksi ke AI. Coba lagi sebentar ya.",
+                    profile, "error", debug={"timings_s": timings})
         return
     except Exception as exc:  # never leave the UI hanging mid-stream
-        yield _done(f"Maaf, terjadi kesalahan di server ({type(exc).__name__}). Coba lagi ya.",
-                    profile, "error", debug={"timings_s": timings, "error": str(exc)})
+        print(f"Server error: {type(exc).__name__}: {exc}", flush=True)
+        yield _done("Maaf, terjadi kesalahan di server. Coba lagi ya.", profile, "error",
+                    debug={"timings_s": timings})
         return
 
-    # 6. Guardrail: only catalog items survive, prices from catalog
+    # 6. Guardrail: only catalog items survive, prices from catalog (the answer already passed the output guard)
     text, ids = split_marker(final)
+    yield from _emit(text)
     yield _done(text, profile, "rag", intent, to_cards(ids), _sources(hits),
                 debug={"search_query": search_query, "timings_s": timings,
                        "alternatives": ext.wants_alternatives},

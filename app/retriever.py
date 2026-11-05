@@ -10,7 +10,7 @@ from app.embeddings import get_embedder
 from app.profile import Profile
 from app.vector_store import FAQ, KNOWLEDGE, query
 
-# intent -> list of (categories, profile filters to apply, k)
+# intent 
 PLANS: dict[str, list[tuple[list[str], list[str], int]]] = {
     "hairstyle": [
         (["face_guide"], ["face"], 1),
@@ -30,7 +30,7 @@ PLANS: dict[str, list[tuple[list[str], list[str], int]]] = {
     "service": [(["service"], [], 4)],
 }
 
-# Guides used when the bot must ask the user for missing information.
+# Guides 
 GUIDE_FOR_SLOT = {
     "face_shape": "FS-identify",
     "hair_texture": "HT-guide",
@@ -68,7 +68,7 @@ def _where(categories: list[str] | None, clauses: list[dict]) -> dict | None:
     return parts[0] if len(parts) == 1 else {"$and": parts}
 
 
-# Guide chunks are background context; they may be repeated even when the user asks for alternatives.
+# Guide chunks 
 GUIDE_CATEGORIES = {"face_guide", "hair_type_guide", "color_guide", "undertone_guide", "product_guide"}
 
 
@@ -99,7 +99,7 @@ def retrieve(search_query: str, intent: str, profile: Profile,
                                     frozenset() if is_guide else skip):
             results.setdefault(hit["id"], hit)
 
-    # Unfiltered semantic search as a safety net.
+    # Unfiltered semantic search as a safety net
     for hit in query(KNOWLEDGE, vector, settings.rag_top_k + len(skip)):
         if hit["score"] >= settings.rag_min_score and hit["id"] not in skip:
             results.setdefault(hit["id"], hit)

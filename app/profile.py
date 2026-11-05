@@ -39,6 +39,7 @@ class Extraction(BaseModel):
     issues: list[Issue] = Field(default_factory=list)
     wants_general_answer: bool = False
     wants_alternatives: bool = False
+    on_topic: bool = True
     search_query: str = ""
 
 
