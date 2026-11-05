@@ -1,15 +1,3 @@
-"""Embedding backends.
-
-- "gemini" (default): Google gemini-embedding-001 via API. No model runs on the server,
-  so the app fits on small free hosting (e.g. Render free, 512 MB RAM).
-- "local": intfloat/multilingual-e5-small with sentence-transformers (needs ~1 GB RAM,
-  install requirements-local.txt). Good for offline experiments.
-
-Both return L2-normalised vectors, so cosine similarity = dot product.
-Documents and queries are embedded differently ("asymmetric" retrieval):
-  gemini -> task_type RETRIEVAL_DOCUMENT vs RETRIEVAL_QUERY
-  e5     -> prefix "passage: " vs "query: "
-"""
 import re
 import time
 from functools import lru_cache

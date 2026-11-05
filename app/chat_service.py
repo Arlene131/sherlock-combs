@@ -1,18 +1,13 @@
-"""The chat pipeline, step by step:
+"""The chat pipeline:
 
-  1. FAQ check        - near-identical to a known FAQ? return its fixed answer (no LLM).
-  2. Profiling        - fast LLM extracts intent + profile slots from the message.
-  3. Slot check       - required info missing? ask the user (with guides) instead of guessing.
-  4. Retrieval        - metadata-filtered search in ChromaDB.
-  5. Generation       - LLM answers from context + full catalog (catalog grounding); the answer is
-                        validated by the output guard before it is sent to the UI.
-  6. Guardrail        - recommended IDs not in the catalog are dropped; prices come from catalog.
+  1. FAQ check       
+  2. Profiling       
+  3. Slot check       
+  4. Retrieval        
+  5. Generation       
+  6. Guardrail        
 
-Security (app/guard.py) wraps the whole pipeline: input guard before step 1, topic gate after step 2,
-output guard during/after step 5. Blocked requests never reach the LLM.
 
-answer_events() yields events so the UI can show progress and stream text:
-  {"type": "status", "text": ...}   {"type": "delta", "text": ...}   {"type": "done", ...result}
 """
 import re
 import time

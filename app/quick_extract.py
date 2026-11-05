@@ -1,10 +1,3 @@
-"""Fast, rule-based profiling (no LLM call).
-
-Most messages use a small, predictable vocabulary ("wajah bulat", "rambut lurus",
-"undertone warm", "ketombe"), so keyword rules can extract intent and slots in
-microseconds. If the rules are not confident (no intent found, or the message is
-about prices/opening hours/etc.), we return None and the LLM does the profiling.
-"""
 import re
 
 from app.profile import Extraction, Profile, describe

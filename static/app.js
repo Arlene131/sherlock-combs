@@ -1,6 +1,3 @@
-// Chat UI logic. The browser keeps the conversation + profile and sends them
-// with every request, so the backend can stay stateless.
-// face.js (MediaPipe from CDN) is loaded lazily on click, so the chat still works if the CDN is unreachable.
 import { mountMascots, setMood } from "/static/mascot.js";
 
 const STORAGE_KEY = "sherlock-combs-chat-v1";

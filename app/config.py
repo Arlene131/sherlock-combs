@@ -1,4 +1,3 @@
-"""Central configuration. Every value can be overridden with an environment variable (.env)."""
 import os
 from dataclasses import dataclass
 from pathlib import Path

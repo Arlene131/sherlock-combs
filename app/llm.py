@@ -1,12 +1,3 @@
-"""Thin wrapper around the Google Gemini API (google-genai SDK).
-
-Speed notes:
-- Recent Gemini models "think" before answering by default, which adds seconds of latency.
-  We ask for minimal thinking: Gemini 3.x uses thinking_level, Gemini 2.5 uses thinking_budget=0.
-  Because a "-latest" alias can point to either family, we try both and remember what works.
-- Profiling uses a smaller, faster model (GEMINI_FAST_MODEL).
-- The final answer is streamed so text appears while it is being generated.
-"""
 from collections.abc import Iterator
 from functools import lru_cache
 from typing import TypeVar

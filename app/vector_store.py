@@ -1,13 +1,3 @@
-"""ChromaDB wrapper.
-
-Two collections:
-- "knowledge": hairstyle, colour, condition, treatment, guide, service, product chunks
-- "faq": every FAQ question variant, pointing to its fixed answer
-
-We compute embeddings ourselves (app.embeddings) and hand Chroma raw vectors,
-so it is always clear which model produced them. Distance metric = cosine,
-and Chroma returns distance = 1 - cosine_similarity.
-"""
 from functools import lru_cache
 
 import chromadb

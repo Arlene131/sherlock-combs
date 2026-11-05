@@ -1,8 +1,8 @@
-# Sherlock Combs Chatbot — RAG Pipeline
+# Sherlock Combs Chatbot — RAG Pipeline 
 
-A retrieval-augmented chatbot for a (fictional) men's barbershop. It recommends
+A RAG chatbot for a (fictional) men's barbershop. It recommends
 haircuts by face shape and hair type, hair colours by skin undertone and hair
-condition, and treatments by hair problem — and only ever recommends services and
+condition, and treatments by hair problem and only ever recommends services and
 products that exist in the shop's catalog.
 
 ## 1. Stack at a glance
@@ -38,11 +38,11 @@ and ingestion fails if an entry references an ID that is not in the catalog.
 ## 3. Offline pipeline — ingestion (`python -m app.ingest`)
 
 ```
-JSON entries ──► chunking ──► metadata ──► embedding ──► ChromaDB
+JSON entries -> chunking -> metadata -> embedding -> ChromaDB
 ```
 
 - **Chunking: 1 entry = 1 chunk.** Entries are small, self-contained facts
-  (one hairstyle, one colour). Fixed 700-character chunking would cut
+  (one hairstyle, one colour). Fixed 700 character chunking would cut
   "style X suits face Y" in half; entry-based chunking never does.
   Catalog items are also added as chunks so product/service questions work.
 - **Metadata:** list fields become boolean flags, e.g.

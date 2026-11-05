@@ -1,4 +1,3 @@
-"""FastAPI app: JSON API + the static web UI on the same server."""
 import json
 import re
 from pathlib import Path

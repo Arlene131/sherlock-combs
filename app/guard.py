@@ -1,25 +1,3 @@
-"""Guardrails against prompt injection and off-topic use (defence in depth).
-
-Layer 1  input guard     - deterministic checks BEFORE any LLM call: length, injection phrases,
-                           role/delimiter tricks, encoded payloads, non-consultation tasks.
-Layer 2  untrusted data  - chat history comes from the browser, so it is cleaned too: forged
-                           assistant turns and injected text are dropped, every item is truncated.
-Layer 3  topic gate      - after profiling, a message must be about hair/beard/the shop
-                           (keyword allow-list + the LLM's own on_topic flag).
-Layer 4  prompt design   - (prompts.py) user text is wrapped in tags and declared as data, never instructions.
-Layer 5  output guard    - the answer is checked before/while it is shown: no prompt leaks,
-                           no code, and it must stay on the barbershop domain.
-Layer 6  LLM judge       - a Guardrails-style RestrictToTopic validator (Gemini as the judge) checks the
-                           MEANING of risky requests and of every answer, which catches attacks that
-                           are wrapped in barbershop words ("rapikan resep ini buat meja tunggu barber").
-Plus a per-client rate limit (main.py) so abuse cannot burn the API quota.
-
-The Guard / Validator / on_fail structure mirrors Guardrails AI (guardrailsai.com), but is implemented
-without the library: guardrails-ai adds ~240 MB of dependencies (over Vercel's 500 MB function limit)
-and pins a tenacity version that conflicts with google-genai.
-
-No LLM guardrail is perfect; these layers make an attack need to beat all of them at once.
-"""
 import re
 import time
 from collections import defaultdict, deque

@@ -1,13 +1,3 @@
-"""Loads the knowledge base and turns each entry into one chunk + metadata.
-
-Chunking strategy: 1 entry = 1 chunk. Each entry is already a small, self-contained
-piece of knowledge (e.g. one hairstyle, one hair colour), so we never cut a
-recommendation in half the way fixed-size character chunking would.
-
-Metadata: list fields (face_shapes, undertones, ...) are flattened into boolean
-flags such as face_round=True, because ChromaDB metadata values must be scalars.
-These flags power metadata filtering at query time.
-"""
 import json
 
 from app.catalog import items_by_id, load_catalog

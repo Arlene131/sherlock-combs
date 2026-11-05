@@ -1,11 +1,3 @@
-"""Retrieval evaluation (no LLM, no API key needed).
-
-For each test question we run the real retriever and check whether the expected
-chunks show up. Metrics:
-  - hit rate : % of questions where at least one expected chunk was retrieved
-  - recall   : % of all expected chunks that were retrieved
-Run after ingest:  python scripts/eval_retrieval.py
-"""
 import json
 import sys
 from pathlib import Path

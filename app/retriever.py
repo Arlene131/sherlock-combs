@@ -1,10 +1,3 @@
-"""Retrieval with metadata filtering.
-
-For each intent we run a small "retrieval plan": several sub-queries, each limited
-to certain categories and filtered by the user's profile (e.g. face_round=True).
-If a filtered sub-query finds too little, its filters are relaxed one by one.
-On top of that, one unfiltered semantic query catches anything the plan missed.
-"""
 from app.config import settings
 from app.embeddings import get_embedder
 from app.profile import Profile

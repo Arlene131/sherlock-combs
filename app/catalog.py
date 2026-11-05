@@ -1,8 +1,3 @@
-"""Catalog = the single source of truth for services and products.
-
-The chatbot may only recommend items that exist here. Prices shown in the UI
-are always read from this file, never from LLM output.
-"""
 import json
 from functools import lru_cache
 

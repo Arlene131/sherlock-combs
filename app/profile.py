@@ -1,9 +1,3 @@
-"""User profile ("slots") that drives personalised retrieval.
-
-The browser keeps the profile and sends it with every message, so the server
-stays stateless (easy to deploy). Each turn the LLM extracts new slot values
-from the latest message and we merge them into the existing profile.
-"""
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field

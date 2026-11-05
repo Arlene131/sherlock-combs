@@ -1,13 +1,3 @@
-"""Ingestion pipeline: knowledge JSON -> chunks -> embeddings -> ChromaDB.
-
-Run once (and again whenever data/ changes):  python -m app.ingest
-Re-running is safe: collections are rebuilt from scratch, so no duplicates.
-
-Index cache: after embedding, the vectors are also saved to data/index_cache.json.
-On a fresh server (e.g. every cold start on Vercel, where the disk is temporary) the
-index is rebuilt from that file, so no embedding API calls and no rate limits at start-up.
-The cache is only used when its fingerprint (data files + embedding model) still matches.
-"""
 import hashlib
 import json
 

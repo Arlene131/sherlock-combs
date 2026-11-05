@@ -1,17 +1,13 @@
-"""Measure Gemini latency so we know where the waiting time goes.
-
-Run:  python scripts/check_llm.py
-"""
 import sys
 import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from pydantic import BaseModel  # noqa: E402
+from pydantic import BaseModel  
 
-from app import llm  # noqa: E402
-from app.config import settings  # noqa: E402
+from app import llm  
+from app.config import settings  
 
 THINKING_NAMES = ["thinking_level=" + settings.thinking_level, "thinking_budget=0", "model default"]
 
