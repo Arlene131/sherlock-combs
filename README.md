@@ -45,23 +45,6 @@ python scripts/eval_retrieval.py
 curl localhost:8000/health
 ```
 
-Re-run `python -m app.ingest` after editing anything in `data/`.
-
-## Deploy to Vercel (free, no credit card)
-
-Vercel's free Hobby plan runs FastAPI with zero configuration (entrypoint `app/main.py`,
-variable `app`), supports streaming, and gives a permanent HTTPS URL.
-
-1. Locally, run `python -m app.ingest` once. Besides filling ChromaDB, it writes
-   `data/index_cache.json` (the embedded knowledge base). Commit this file: on Vercel the
-   disk is temporary, so each cold start rebuilds ChromaDB in `/tmp` from this cache
-   without calling the embedding API. Re-run ingest and commit again whenever `data/` changes.
-2. Push the project to GitHub (`.env` is git-ignored and must never be pushed).
-3. vercel.com → sign up with GitHub (Hobby plan) → **Add New → Project** → import the repo.
-4. In **Environment Variables** add `GEMINI_API_KEY` (your key) and
-   `GEMINI_MODEL` / `GEMINI_FAST_MODEL` = `gemini-flash-lite-latest`. Click **Deploy**.
-5. The URL looks like `https://sherlock-combs.vercel.app`. Every `git push` redeploys.
-
 `render.yaml` and `Dockerfile` are kept for container hosts (Render, Railway, etc.).
 
 ## Notes
